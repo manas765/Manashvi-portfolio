@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050505" />
+
+  <title>Manashvi Sharma | Gotham Portfolio</title>
+
+  <meta
+    name="description"
+    content="Manashvi Sharma — Computer Science & Engineering student, developer and AI/ML enthusiast."
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- AMBIENT BACKGROUND -->
+  <div class="noise"></div>
+  <div class="fog fog-one"></div>
+  <div class="fog fog-two"></div>
+
+  <!-- RAIN -->
+  <canvas id="rainCanvas"></canvas>
+
+  <!-- TOP HUD -->
+  <header class="topbar">
+    <a href="#home" class="brand">
+      <span class="brand-symbol">◈</span>
+      MS<span class="brand-slash">/</span>27
+    </a>
+
+    <div class="status">
+      <span class="status-light"></span>
+      SYSTEM ONLINE
+    </div>
+
+    <button class="menu-button" id="menuButton">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="side-nav" id="sideNav">
+    <a href="#home" data-label="HOME">01</a>
+    <a href="#about" data-label="IDENTITY">02</a>
+    <a href="#skills" data-label="BATCOMPUTER">03</a>
+    <a href="#projects" data-label="CASE FILES">04</a>
+    <a href="#records" data-label="RECORDS">05</a>
+    <a href="#contact" data-label="SIGNAL">06</a>
+  </nav>
+
+  <main>
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero section" id="home">
+
+      <div class="gotham">
+        <div class="moon"></div>
+
+        <div class="bat-signal">
+          <div class="signal-ring ring-one"></div>
+          <div class="signal-ring ring-two"></div>
+          <div class="bat-shape">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="city city-back">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="city city-mid">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i>
+        </div>
+
+        <div class="city city-front">
+          <i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i><i></i>
+          <i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="street"></div>
+      </div>
+
+      <div class="hero-content">
+        <div class="eyebrow reveal">
+          GOTHAM CITY <span>•</span> 02:47 AM
+        </div>
+
+        <div class="hero-title">
+          <span class="hero-small reveal">THE DEVELOPER BEHIND</span>
+
+          <h1>
+            <span class="word reveal">MANASHVI</span>
+            <span class="word outline reveal">SHARMA</span>
+          </h1>
+
+          <div class="hero-line reveal"></div>
+
+          <p class="hero-role reveal">
+            COMPUTER SCIENCE <span>×</span> ENGINEERING
+          </p>
+
+          <p class="hero-sub reveal">
+            AI/ML · FULL STACK · PROBLEM SOLVING
+          </p>
+        </div>
+
+        <div class="hero-actions reveal">
+          <a href="#projects" class="primary-button magnetic">
+            ENTER THE SYSTEM
+            <span>↘</span>
+          </a>
+
+          <a href="https://github.com/manas765" target="_blank" rel="noopener" class="ghost-button magnetic">
+            GITHUB ↗
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-coordinates">
+        <span>13° N</span>
+        <span>80° E</span>
+      </div>
+
+      <div class="scroll-hint">
+        <span>SCROLL TO DESCEND</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section class="section about-section" id="about">
+
+      <div class="section-number">02 / IDENTITY</div>
+
+      <div class="section-heading">
+        <span>CASE FILE // 001</span>
+        <h2>WHO IS<br><em>MANASHVI?</em></h2>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="identity-card glass-card">
+          <div class="card-top">
+            <span>PERSONNEL RECORD</span>
+            <span class="classified">ACTIVE</span>
+          </div>
+
+          <div class="identity-avatar">
+            <div class="avatar-glow"></div>
+            <div class="avatar-monogram">MS</div>
+          </div>
+
+          <h3>MANASHVI SHARMA</h3>
+          <p class="identity-role">CSE STUDENT · DEVELOPER</p>
+
+          <div class="identity-lines">
+            <div>
+              <span>INSTITUTE</span>
+              <strong>SRM IST</strong>
+            </div>
+
+            <div>
+              <span>PROGRAM</span>
+              <strong>B.TECH CSE</strong>
+            </div>
+
+            <div>
+              <span>PERIOD</span>
+              <strong>2024 — 2028</strong>
+            </div>
+
+            <div>
+              <span>CGPA</span>
+              <strong>9.1</strong>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="about-copy">
+
+          <div class="quote">
+            “BUILDING SYSTEMS THAT<br>
+            <span>DO MORE THAN JUST WORK.</span>”
+          </div>
+
+          <p>
+            I'm a Computer Science & Engineering student at
+            SRM Institute of Science and Technology, focused on
+            building practical software, intelligent systems and
+            polished digital experiences.
+          </p>
+
+          <p>
+            My work spans machine learning, backend development,
+            frontend interfaces, data analysis and problem solving.
+            I enjoy taking an idea from a rough concept to something
+            that actually works.
+          </p>
+
+          <div class="about-tags">
+            <span>AI / ML</span>
+            <span>FULL STACK</span>
+            <span>DATA</span>
+            <span>UI / UX</span>
+            <span>DSA</span>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         BATCOMPUTER
+    ====================================================== -->
+
+    <section class="section computer-section" id="skills">
+
+      <div class="section-number">03 / BATCOMPUTER</div>
+
+      <div class="section-heading center">
+        <span>WAYNE SYSTEMS // DEVELOPER DATABASE</span>
+        <h2>TECHNICAL<br><em>ARSENAL</em></h2>
+      </div>
+
+      <div class="computer">
+
+        <div class="computer-header">
+          <div>
+            <span class="terminal-dot"></span>
+            MANASHVI.OS
+          </div>
+
+          <div>
+            SYSTEM STATUS:
+            <strong>OPTIMAL</strong>
+          </div>
+        </div>
+
+        <div class="computer-body">
+
+          <aside class="skill-tabs">
+
+            <button class="skill-tab active" data-skill="languages">
+              <span>01</span>
+              LANGUAGES
+            </button>
+
+            <button class="skill-tab" data-skill="ai">
+              <span>02</span>
+              AI / MACHINE LEARNING
+            </button>
+
+            <button class="skill-tab" data-skill="web">
+              <span>03</span>
+              WEB / BACKEND
+            </button>
+
+            <button class="skill-tab" data-skill="data">
+              <span>04</span>
+              DATABASES / CLOUD
+            </button>
+
+            <button class="skill-tab" data-skill="systems">
+              <span>05</span>
+              IOT / SECURITY
+            </button>
+
+          </aside>
+
+          <div class="skill-display">
+
+            <div class="scan-line"></div>
+
+            <div class="skill-panel active" id="languages">
+
+              <div class="terminal-label">LANGUAGE_ANALYSIS</div>
+
+              <h3>CORE LANGUAGES</h3>
+
+              <div class="skill-meter">
+                <div class="meter-title">
+                  <span>PYTHON</span>
+                  <span>CORE</span>
+                </div>
+                <div class="meter">
+                  <i style="width:88%"></i>
+                </div>
+              </div>
+
+              <div class="skill-meter">
+                <div class="meter-title">
+                  <span>C++</span>
+                  <span>CORE</span>
+                </div>
+                <div class="meter">
+                  <i style="width:82%"></i>
+                </div>
+              </div>
+
+              <div class="skill-meter">
+                <div class="meter-title">
+                  <span>C</span>
+                  <span>CORE</span>
+                </div>
+                <div class="meter">
+                  <i style="width:76%"></i>
+                </div>
+              </div>
+
+              <div class="terminal-output">
+                &gt; language scan complete<br>
+                &gt; C / C++ / Python identified<br>
+                &gt; status: READY
+              </div>
+
+            </div>
+
+
+            <div class="skill-panel" id="ai">
+
+              <div class="terminal-label">INTELLIGENCE_MODULE</div>
+
+              <h3>AI / MACHINE LEARNING</h3>
+
+              <div class="skill-tags-large">
+                <span>PyTorch</span>
+                <span>Scikit-learn</span>
+                <span>NumPy</span>
+                <span>Pandas</span>
+                <span>CNN</span>
+                <span>LSTM</span>
+                <span>Feature Engineering</span>
+                <span>Statistical Modeling</span>
+              </div>
+
+              <div class="terminal-output">
+                &gt; predictive systems loaded<br>
+                &gt; model pipeline available<br>
+                &gt; intelligence module: ONLINE
+              </div>
+
+            </div>
+
+
+            <div class="skill-panel" id="web">
+
+              <div class="terminal-label">WEB_SYSTEMS</div>
+
+              <h3>WEB / BACKEND</h3>
+
+              <div class="skill-tags-large">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Flask</span>
+                <span>REST API</span>
+                <span>Git</span>
+                <span>GitHub</span>
+              </div>
+
+              <div class="terminal-output">
+                &gt; frontend systems ready<br>
+                &gt; REST interface detected<br>
+                &gt; deployment architecture: READY
+              </div>
+
+            </div>
+
+
+            <div class="skill-panel" id="data">
+
+              <div class="terminal-label">DATA_CORE</div>
+
+              <h3>DATABASES / CLOUD</h3>
+
+              <div class="skill-tags-large">
+                <span>MS SQL Server</span>
+                <span>SQLite</span>
+                <span>Google Cloud</span>
+                <span>Vertex AI</span>
+                <span>Data Analysis</span>
+                <span>Risk Assessment</span>
+              </div>
+
+              <div class="terminal-output">
+                &gt; persistence layer active<br>
+                &gt; cloud infrastructure detected<br>
+                &gt; data core: STABLE
+              </div>
+
+            </div>
+
+
+            <div class="skill-panel" id="systems">
+
+              <div class="terminal-label">SYSTEMS_DEFENSE</div>
+
+              <h3>IOT / SECURITY</h3>
+
+              <div class="skill-tags-large">
+                <span>IoT Security</span>
+                <span>Edge Computing</span>
+                <span>CNN</span>
+                <span>LSTM</span>
+                <span>Risk Assessment</span>
+              </div>
+
+              <div class="terminal-output">
+                &gt; edge systems identified<br>
+                &gt; security layer available<br>
+                &gt; perimeter: SECURED
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         PROJECTS
+    ====================================================== -->
+
+    <section class="section projects-section" id="projects">
+
+      <div class="section-number">04 / CASE FILES</div>
+
+      <div class="section-heading">
+        <span>ARCHIVE // ACTIVE INVESTIGATIONS</span>
+        <h2>SELECTED<br><em>PROJECTS</em></h2>
+      </div>
+
+      <div class="projects">
+
+        <!-- PROJECT 1 -->
+
+        <article class="project-card featured-project">
+
+          <div class="project-visual predictor-visual">
+
+            <div class="radar">
+              <div class="radar-circle"></div>
+              <div class="radar-circle"></div>
+              <div class="radar-circle"></div>
+              <div class="radar-line"></div>
+              <div class="radar-point point-one"></div>
+              <div class="radar-point point-two"></div>
+              <div class="radar-point point-three"></div>
+            </div>
+
+            <div class="prediction-console">
+              <div class="console-header">
+                BLACK PREDICTOR
+                <span>● LIVE</span>
+              </div>
+
+              <div class="console-row">
+                <span>GRID LOAD</span>
+                <strong>81.4%</strong>
+              </div>
+
+              <div class="console-row">
+                <span>RISK</span>
+                <strong class="risk">17.4%</strong>
+              </div>
+
+              <div class="console-row">
+                <span>STATUS</span>
+                <strong>STABLE</strong>
+              </div>
+
+              <div class="console-bar">
+                <i></i>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="project-info">
+
+            <div class="project-meta">
+              <span>CASE 001</span>
+              <span>ML / BACKEND</span>
+            </div>
+
+            <h3>BLACK<br><em>PREDICTOR</em></h3>
+
+            <p>
+              Predictive grid reliability platform using historical
+              infrastructure and environmental data to forecast
+              power outage risk.
+            </p>
+
+            <div class="project-stack">
+              <span>PYTHON</span>
+              <span>FLASK</span>
+              <span>SCIKIT-LEARN</span>
+              <span>SQLITE</span>
+              <span>REST API</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="case-button" data-case="predictor">
+                OPEN CASE FILE ↗
+              </button>
+
+              <a
+                href="https://github.com/manas765/Black.Predictor-"
+                target="_blank"
+                rel="noopener"
+              >
+                GITHUB ↗
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PROJECT 2 -->
+
+        <article class="project-card">
+
+          <div class="project-visual drink-visual">
+
+            <div class="can">
+              <div class="can-top"></div>
+              <div class="can-body">
+                <span>SOFT</span>
+                <strong>DRINK</strong>
+                <small>ORIGINAL</small>
+              </div>
+              <div class="can-bottom"></div>
+            </div>
+
+            <div class="product-orbit orbit-a"></div>
+            <div class="product-orbit orbit-b"></div>
+
+          </div>
+
+          <div class="project-info">
+
+            <div class="project-meta">
+              <span>CASE 002</span>
+              <span>FRONTEND</span>
+            </div>
+
+            <h3>SOFT<br><em>DRINK</em></h3>
+
+            <p>
+              Responsive beverage brand landing page with
+              interactive navigation, product showcase and
+              smooth CSS/JavaScript interactions.
+            </p>
+
+            <div class="project-stack">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JAVASCRIPT</span>
+              <span>RESPONSIVE UI</span>
+            </div>
+
+            <div class="project-actions">
+              <button class="case-button" data-case="softdrink">
+                OPEN CASE FILE ↗
+              </button>
+
+              <a
+                href="https://github.com/manas765"
+                target="_blank"
+                rel="noopener"
+              >
+                SOURCE ↗
+              </a>
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CODING TERMINAL
+    ====================================================== -->
+
+    <section class="section terminal-section">
+
+      <div class="section-number">05 / PROBLEM SOLVING</div>
+
+      <div class="coding-terminal">
+
+        <div class="terminal-top">
+          <div>
+            <span class="terminal-dot"></span>
+            LEETCODE_TERMINAL
+          </div>
+
+          <span>MANAS765</span>
+        </div>
+
+        <div class="terminal-content">
+
+          <div class="terminal-big">
+            <span class="terminal-symbol">&gt;_</span>
+            <strong>PROBLEM<br>SOLVING</strong>
+          </div>
+
+          <div class="terminal-stat">
+            <strong>83</strong>
+            <span>PROBLEMS<br>SOLVED</span>
+          </div>
+
+          <div class="terminal-topics">
+            <span>BACKTRACKING</span>
+            <span>DYNAMIC PROGRAMMING</span>
+            <span>BINARY SEARCH</span>
+            <span>ARRAYS</span>
+            <span>STRINGS</span>
+            <span>STACK</span>
+          </div>
+
+          <a
+            class="terminal-link"
+            href="https://leetcode.com/u/manas765/"
+            target="_blank"
+            rel="noopener"
+          >
+            VIEW LEETCODE PROFILE ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RECORDS
+    ====================================================== -->
+
+    <section class="section records-section" id="records">
+
+      <div class="section-number">06 / RECORDS</div>
+
+      <div class="section-heading center">
+        <span>ARCHIVE // VERIFIED</span>
+        <h2>ACHIEVEMENTS &<br><em>CERTIFICATIONS</em></h2>
+      </div>
+
+      <div class="records-grid">
+
+        <div class="record-card">
+          <span class="record-number">01</span>
+          <span class="record-type">HACKATHON</span>
+          <h3>HACKTRAX<br><em>2.0</em></h3>
+          <p>Top 10 Finalist</p>
+          <div class="record-line"></div>
+        </div>
+
+        <div class="record-card">
+          <span class="record-number">02</span>
+          <span class="record-type">SRM / ALEXA CLUB</span>
+          <h3>TOP 10<br><em>TEAM</em></h3>
+          <p>Shortlisted among top 10 teams</p>
+          <div class="record-line"></div>
+        </div>
+
+        <div class="record-card">
+          <span class="record-number">03</span>
+          <span class="record-type">ORACLE</span>
+          <h3>FOUNDATIONS<br><em>ASSOCIATE</em></h3>
+          <p>Oracle Certified Foundations Associate</p>
+          <div class="record-line"></div>
+        </div>
+
+        <div class="record-card">
+          <span class="record-number">04</span>
+          <span class="record-type">ORACLE AI</span>
+          <h3>AI AGENT<br><em>STUDIO</em></h3>
+          <p>Oracle Fusion AI Agent Studio Certified Foundations Associate</p>
+          <div class="record-line"></div>
+        </div>
+
+        <div class="record-card">
+          <span class="record-number">05</span>
+          <span class="record-type">CISCO</span>
+          <h3>NETWORKING<br><em>BASICS</em></h3>
+          <p>Cisco Networking Academy</p>
+          <div class="record-line"></div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         CONNECT
+    ====================================================== -->
+
+    <section class="section connect-section">
+
+      <div class="section-number">07 / CONNECT</div>
+
+      <div class="section-heading center">
+        <span>COMMUNICATIONS CHANNEL</span>
+        <h2>FIND ME<br><em>ONLINE</em></h2>
+      </div>
+
+      <div class="social-grid">
+
+        <a
+          href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
+          target="_blank"
+          rel="noopener"
+          class="social-card linkedin"
+        >
+          <span class="social-icon">in</span>
+          <div>
+            <span>PROFESSIONAL NETWORK</span>
+            <strong>LINKEDIN</strong>
+          </div>
+          <b>↗</b>
+        </a>
+
+        <a
+          href="https://github.com/manas765"
+          target="_blank"
+          rel="noopener"
+          class="social-card github"
+        >
+          <span class="social-icon">◇</span>
+          <div>
+            <span>CODE / PROJECTS</span>
+            <strong>GITHUB</strong>
+          </div>
+          <b>↗</b>
+        </a>
+
+        <a
+          href="https://leetcode.com/u/manas765/"
+          target="_blank"
+          rel="noopener"
+          class="social-card leetcode"
+        >
+          <span class="social-icon">&lt;&gt;</span>
+          <div>
+            <span>PROBLEM SOLVING</span>
+            <strong>LEETCODE</strong>
+          </div>
+          <b>↗</b>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT / BAT SIGNAL
+    ====================================================== -->
+
+    <section class="section contact-section" id="contact">
+
+      <div class="contact-signal">
+        <div class="giant-bat">
+          <span></span>
+        </div>
+      </div>
+
+      <div class="contact-content">
+
+        <span class="contact-eyebrow">THE SIGNAL IS ACTIVE</span>
+
+        <h2>
+          LET'S BUILD<br>
+          <em>SOMETHING.</em>
+        </h2>
+
+        <p>
+          Have an idea, project or technical challenge?
+          Send a signal.
+        </p>
+
+        <a
+          href="mailto:manashvisharma07@gmail.com"
+          class="email-button magnetic"
+        >
+          manashvisharma07@gmail.com
+          <span>↗</span>
+        </a>
+
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/" target="_blank">LINKEDIN</a>
+          <a href="https://github.com/manas765" target="_blank">GITHUB</a>
+          <a href="https://leetcode.com/u/manas765/" target="_blank">LEETCODE</a>
+        </div>
+
+      </div>
+
+      <footer>
+        <span>MANASHVI SHARMA © 2026</span>
+        <span>BUILT FROM GOTHAM</span>
+        <span>MS / 27</span>
+      </footer>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       CASE MODAL
+  ====================================================== -->
+
+  <div class="case-modal" id="caseModal">
+
+    <div class="modal-inner">
+
+      <button class="modal-close" id="modalClose">×</button>
+
+      <div class="modal-label">CASE FILE / CLASSIFIED</div>
+
+      <h2 id="modalTitle">BLACK PREDICTOR</h2>
+
+      <div class="modal-content" id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SECRET TERMINAL -->
+
+  <div class="secret-terminal" id="secretTerminal">
+
+    <div class="secret-box">
+
+      <button id="secretClose">×</button>
+
+      <div class="secret-header">
+        WAYNE SYSTEMS // ROOT ACCESS
+      </div>
+
+      <div class="secret-body">
+        <p>&gt; ACCESS GRANTED</p>
+        <p>&gt; USER: MANASHVI SHARMA</p>
+        <p>&gt; CLEARANCE: DEVELOPER</p>
+        <p>&gt; SYSTEM STATUS: ONLINE</p>
+        <br>
+        <p class="secret-message">
+          THE NIGHT IS LONG.<br>
+          THE CODE IS LONGER.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
