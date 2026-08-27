@@ -1917,21 +1917,416 @@ footer {
         font-size: 8px;
     }
 }
-.profile-photo {
-    width: 280px;
-    height: 280px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 2px solid #f5c518;
-    box-shadow:
-        0 0 20px rgba(245, 197, 24, 0.25),
-        0 0 60px rgba(245, 197, 24, 0.08);
-    position: relative;
+/* =========================================================
+   BATCOMPUTER — FINAL MOBILE OPTIMIZATION
+========================================================= */
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        height: 65px;
+        padding: 0 18px;
+    }
+
+    .nav-logo {
+        font-size: 8px;
+    }
+
+    .logo-mark {
+        width: 28px;
+        height: 28px;
+    }
+
+    .nav-status {
+        font-size: 7px;
+    }
+
+
+    /* HERO */
+    .hero {
+        min-height: auto;
+        padding: 110px 22px 70px;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 45px;
+    }
+
+    .hero-left {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .classification {
+        font-size: 7px;
+        letter-spacing: 1.3px;
+        margin-bottom: 25px;
+    }
+
+    .hero-small {
+        font-size: 8px;
+        letter-spacing: 3px;
+    }
+
+    .hero h1 {
+        font-size: clamp(48px, 15vw, 72px);
+        line-height: 0.88;
+        letter-spacing: -3px;
+    }
+
+    .hero-title {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+        gap: 10px;
+    }
+
+    .hero-title .line {
+        width: 35px;
+    }
+
+    .hero-description {
+        font-size: 10px;
+        line-height: 1.8;
+        max-width: 100%;
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 15px 18px;
+        min-height: 48px;
+    }
+
+
+    /* SOCIAL LINKS */
+
+    .hero-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    .hero-socials a {
+        font-size: 8px;
+    }
+
+
+    /* PROFILE */
+
+    .hero-right {
+        width: 100%;
+        min-height: 420px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .profile-card {
+        width: min(330px, 86vw);
+
+        transform:
+            perspective(1000px)
+            rotateY(-4deg)
+            rotateX(2deg);
+    }
+
+    .profile-card:hover {
+        transform:
+            perspective(1000px)
+            rotateY(0deg)
+            rotateX(0deg)
+            translateY(-5px);
+    }
+
+    .profile-image-wrap {
+        aspect-ratio: 0.82;
+    }
+
+    /* Smaller orbit system */
+
+    .orbit-one {
+        width: 360px;
+        height: 360px;
+    }
+
+    .orbit-two {
+        width: 300px;
+        height: 300px;
+    }
+
+    .orbit-three {
+        width: 430px;
+        height: 430px;
+    }
+
+
+    /* STATS */
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        min-height: 160px;
+        padding: 28px 22px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .stat-card:last-child {
+        border-bottom: 0;
+    }
+
+
+    /* SECTIONS */
+
+    .section {
+        padding: 90px 22px;
+    }
+
+    .section-heading {
+        gap: 12px;
+        margin-bottom: 40px;
+    }
+
+    .section-number {
+        font-size: 8px;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(32px, 10vw, 50px);
+    }
+
+    .section-intro {
+        margin-left: 0;
+        margin-top: -10px;
+        font-size: 9px;
+        line-height: 1.8;
+    }
+
+
+    /* ABOUT */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-text p {
+        font-size: 10px;
+        line-height: 1.9;
+    }
+
+    .about-text .large-text {
+        font-size: 17px;
+    }
+
+
+    /* PROJECTS */
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .project-card {
+        width: 100%;
+        min-width: 0;
+        padding: 25px;
+
+        min-height: auto;
+    }
+
+    .project-card h3 {
+        font-size: 28px;
+    }
+
+    .project-description {
+        font-size: 9px;
+        line-height: 1.8;
+    }
+
+    .project-features {
+        font-size: 9px;
+        line-height: 1.8;
+    }
+
+    .tech-stack {
+        flex-wrap: wrap;
+        gap: 7px;
+    }
+
+
+    /* SKILLS */
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ACHIEVEMENTS */
+
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-section {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 90px 22px;
+    }
+
+    .connect-card {
+        padding: 40px 22px;
+    }
+
+    .contact-link {
+        grid-template-columns: 1fr 1.5fr 20px;
+        font-size: 7px;
+    }
+
+    .contact-link strong {
+        font-size: 8px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 25px 20px;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
 }
 
-.profile-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+
+/* =========================================================
+   SMALL PHONES — 360px to 500px
+========================================================= */
+
+@media (max-width: 500px) {
+
+    .navbar {
+        padding: 0 14px;
+    }
+
+    .nav-logo span:last-child {
+        display: none;
+    }
+
+    .hero {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .hero h1 {
+        font-size: 49px;
+        letter-spacing: -3px;
+    }
+
+    .classification {
+        font-size: 6.5px;
+    }
+
+    .hero-description {
+        font-size: 9px;
+    }
+
+    .hero-right {
+        min-height: 390px;
+    }
+
+    .profile-card {
+        width: min(300px, 84vw);
+    }
+
+    .orbit-one {
+        width: 320px;
+        height: 320px;
+    }
+
+    .orbit-two {
+        width: 270px;
+        height: 270px;
+    }
+
+    .orbit-three {
+        width: 380px;
+        height: 380px;
+    }
+
+    .section {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .project-card {
+        padding: 22px;
+    }
+
+    .stat-card {
+        padding: 25px 18px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-title {
+        font-size: 7px;
+    }
+
+    .hero-description {
+        font-size: 8.5px;
+    }
+
+    .profile-card {
+        width: 270px;
+    }
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
 }
