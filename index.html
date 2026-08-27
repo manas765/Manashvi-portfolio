@@ -1,906 +1,1176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050505" />
+    <meta charset="UTF-8">
 
-  <title>Manashvi Sharma | Gotham Portfolio</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="description"
-    content="Manashvi Sharma — Computer Science & Engineering student, developer and AI/ML enthusiast."
-  />
+    <meta name="description"
+          content="Manashvi Sharma — Computer Science & Engineering student, developer and AI/ML enthusiast.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="theme-color" content="#050608">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+    <title>MANASHVI SHARMA | BATCOMPUTER</title>
 
-  <link rel="stylesheet" href="style.css" />
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- YOUR CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- CURSOR -->
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
 
-  <!-- AMBIENT BACKGROUND -->
-  <div class="noise"></div>
-  <div class="fog fog-one"></div>
-  <div class="fog fog-two"></div>
+<div id="loader">
+    <div class="loader-bat">🦇</div>
+    <div class="loader-text">INITIALIZING BATCOMPUTER</div>
 
-  <!-- RAIN -->
-  <canvas id="rainCanvas"></canvas>
-
-  <!-- TOP HUD -->
-  <header class="topbar">
-    <a href="#home" class="brand">
-      <span class="brand-symbol">◈</span>
-      MS<span class="brand-slash">/</span>27
-    </a>
-
-    <div class="status">
-      <span class="status-light"></span>
-      SYSTEM ONLINE
+    <div class="loader-bar">
+        <div class="loader-progress"></div>
     </div>
 
-    <button class="menu-button" id="menuButton">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
+    <div class="loader-percent">0%</div>
+</div>
 
-  <!-- NAVIGATION -->
-  <nav class="side-nav" id="sideNav">
-    <a href="#home" data-label="HOME">01</a>
-    <a href="#about" data-label="IDENTITY">02</a>
-    <a href="#skills" data-label="BATCOMPUTER">03</a>
-    <a href="#projects" data-label="CASE FILES">04</a>
-    <a href="#records" data-label="RECORDS">05</a>
-    <a href="#contact" data-label="SIGNAL">06</a>
-  </nav>
 
-  <main>
+<!-- =====================================================
+     BACKGROUND EFFECTS
+===================================================== -->
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+<div class="noise"></div>
 
-    <section class="hero section" id="home">
+<div class="grid-background"></div>
 
-      <div class="gotham">
-        <div class="moon"></div>
+<div class="bat-signal">
+    <div class="signal-symbol">♞</div>
+</div>
 
-        <div class="bat-signal">
-          <div class="signal-ring ring-one"></div>
-          <div class="signal-ring ring-two"></div>
-          <div class="bat-shape">
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-logo">
+        <span class="logo-mark">M</span>
+        <span>MS // 001</span>
+    </div>
+
+    <nav>
+        <a href="#home">HOME</a>
+        <a href="#about">PROFILE</a>
+        <a href="#projects">CASE FILES</a>
+        <a href="#skills">ARSENAL</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <div class="nav-status">
+        <span class="status-dot"></span>
+        ONLINE
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<main>
+
+<section id="home" class="hero">
+
+    <div class="hero-left">
+
+        <div class="classification">
             <span></span>
-          </div>
+            CLASSIFIED // WAYNE TECH DATABASE
         </div>
 
-        <div class="city city-back">
-          <i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i>
-        </div>
+        <p class="hero-small">
+            COMPUTER SCIENCE & ENGINEERING
+        </p>
 
-        <div class="city city-mid">
-          <i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i>
-        </div>
-
-        <div class="city city-front">
-          <i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i><i></i>
-          <i></i><i></i><i></i><i></i>
-        </div>
-
-        <div class="street"></div>
-      </div>
-
-      <div class="hero-content">
-        <div class="eyebrow reveal">
-          GOTHAM CITY <span>•</span> 02:47 AM
-        </div>
+        <h1>
+            MANASHVI
+            <span>SHARMA</span>
+        </h1>
 
         <div class="hero-title">
-          <span class="hero-small reveal">THE DEVELOPER BEHIND</span>
-
-          <h1>
-            <span class="word reveal">MANASHVI</span>
-            <span class="word outline reveal">SHARMA</span>
-          </h1>
-
-          <div class="hero-line reveal"></div>
-
-          <p class="hero-role reveal">
-            COMPUTER SCIENCE <span>×</span> ENGINEERING
-          </p>
-
-          <p class="hero-sub reveal">
-            AI/ML · FULL STACK · PROBLEM SOLVING
-          </p>
+            <span class="line"></span>
+            DEVELOPER // AI & ML // BUILDER
         </div>
 
-        <div class="hero-actions reveal">
-          <a href="#projects" class="primary-button magnetic">
-            ENTER THE SYSTEM
-            <span>↘</span>
-          </a>
+        <p class="hero-description">
+            Computer Science & Engineering student building intelligent,
+            secure and user-focused systems across software, AI/ML,
+            cybersecurity and full-stack development.
+        </p>
 
-          <a href="https://github.com/manas765" target="_blank" rel="noopener" class="ghost-button magnetic">
-            GITHUB ↗
-          </a>
-        </div>
-      </div>
+        <div class="hero-buttons">
 
-      <div class="hero-coordinates">
-        <span>13° N</span>
-        <span>80° E</span>
-      </div>
+            <a href="#projects" class="btn primary">
+                VIEW CASE FILES
+                <span>→</span>
+            </a>
 
-      <div class="scroll-hint">
-        <span>SCROLL TO DESCEND</span>
-        <div class="scroll-line"></div>
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         ABOUT
-    ====================================================== -->
-
-    <section class="section about-section" id="about">
-
-      <div class="section-number">02 / IDENTITY</div>
-
-      <div class="section-heading">
-        <span>CASE FILE // 001</span>
-        <h2>WHO IS<br><em>MANASHVI?</em></h2>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="identity-card glass-card">
-          <div class="card-top">
-            <span>PERSONNEL RECORD</span>
-            <span class="classified">ACTIVE</span>
-          </div>
-
-          <div class="identity-avatar">
-            <div class="avatar-glow"></div>
-            <div class="avatar-monogram">MS</div>
-          </div>
-
-          <h3>MANASHVI SHARMA</h3>
-          <p class="identity-role">CSE STUDENT · DEVELOPER</p>
-
-          <div class="identity-lines">
-            <div>
-              <span>INSTITUTE</span>
-              <strong>SRM IST</strong>
-            </div>
-
-            <div>
-              <span>PROGRAM</span>
-              <strong>B.TECH CSE</strong>
-            </div>
-
-            <div>
-              <span>PERIOD</span>
-              <strong>2024 — 2028</strong>
-            </div>
-
-            <div>
-              <span>CGPA</span>
-              <strong>9.1</strong>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="about-copy">
-
-          <div class="quote">
-            “BUILDING SYSTEMS THAT<br>
-            <span>DO MORE THAN JUST WORK.</span>”
-          </div>
-
-          <p>
-            I'm a Computer Science & Engineering student at
-            SRM Institute of Science and Technology, focused on
-            building practical software, intelligent systems and
-            polished digital experiences.
-          </p>
-
-          <p>
-            My work spans machine learning, backend development,
-            frontend interfaces, data analysis and problem solving.
-            I enjoy taking an idea from a rough concept to something
-            that actually works.
-          </p>
-
-          <div class="about-tags">
-            <span>AI / ML</span>
-            <span>FULL STACK</span>
-            <span>DATA</span>
-            <span>UI / UX</span>
-            <span>DSA</span>
-          </div>
+            <a href="#contact" class="btn secondary">
+                CONTACT ME
+                <span>↗</span>
+            </a>
 
         </div>
 
-      </div>
-    </section>
+        <div class="hero-socials">
 
+            <a href="https://github.com/manas765"
+               target="_blank">
+                GITHUB
+            </a>
 
-    <!-- =====================================================
-         BATCOMPUTER
-    ====================================================== -->
+            <a href="https://leetcode.com/u/manas765/"
+               target="_blank">
+                LEETCODE
+            </a>
 
-    <section class="section computer-section" id="skills">
-
-      <div class="section-number">03 / BATCOMPUTER</div>
-
-      <div class="section-heading center">
-        <span>WAYNE SYSTEMS // DEVELOPER DATABASE</span>
-        <h2>TECHNICAL<br><em>ARSENAL</em></h2>
-      </div>
-
-      <div class="computer">
-
-        <div class="computer-header">
-          <div>
-            <span class="terminal-dot"></span>
-            MANASHVI.OS
-          </div>
-
-          <div>
-            SYSTEM STATUS:
-            <strong>OPTIMAL</strong>
-          </div>
-        </div>
-
-        <div class="computer-body">
-
-          <aside class="skill-tabs">
-
-            <button class="skill-tab active" data-skill="languages">
-              <span>01</span>
-              LANGUAGES
-            </button>
-
-            <button class="skill-tab" data-skill="ai">
-              <span>02</span>
-              AI / MACHINE LEARNING
-            </button>
-
-            <button class="skill-tab" data-skill="web">
-              <span>03</span>
-              WEB / BACKEND
-            </button>
-
-            <button class="skill-tab" data-skill="data">
-              <span>04</span>
-              DATABASES / CLOUD
-            </button>
-
-            <button class="skill-tab" data-skill="systems">
-              <span>05</span>
-              IOT / SECURITY
-            </button>
-
-          </aside>
-
-          <div class="skill-display">
-
-            <div class="scan-line"></div>
-
-            <div class="skill-panel active" id="languages">
-
-              <div class="terminal-label">LANGUAGE_ANALYSIS</div>
-
-              <h3>CORE LANGUAGES</h3>
-
-              <div class="skill-meter">
-                <div class="meter-title">
-                  <span>PYTHON</span>
-                  <span>CORE</span>
-                </div>
-                <div class="meter">
-                  <i style="width:88%"></i>
-                </div>
-              </div>
-
-              <div class="skill-meter">
-                <div class="meter-title">
-                  <span>C++</span>
-                  <span>CORE</span>
-                </div>
-                <div class="meter">
-                  <i style="width:82%"></i>
-                </div>
-              </div>
-
-              <div class="skill-meter">
-                <div class="meter-title">
-                  <span>C</span>
-                  <span>CORE</span>
-                </div>
-                <div class="meter">
-                  <i style="width:76%"></i>
-                </div>
-              </div>
-
-              <div class="terminal-output">
-                &gt; language scan complete<br>
-                &gt; C / C++ / Python identified<br>
-                &gt; status: READY
-              </div>
-
-            </div>
-
-
-            <div class="skill-panel" id="ai">
-
-              <div class="terminal-label">INTELLIGENCE_MODULE</div>
-
-              <h3>AI / MACHINE LEARNING</h3>
-
-              <div class="skill-tags-large">
-                <span>PyTorch</span>
-                <span>Scikit-learn</span>
-                <span>NumPy</span>
-                <span>Pandas</span>
-                <span>CNN</span>
-                <span>LSTM</span>
-                <span>Feature Engineering</span>
-                <span>Statistical Modeling</span>
-              </div>
-
-              <div class="terminal-output">
-                &gt; predictive systems loaded<br>
-                &gt; model pipeline available<br>
-                &gt; intelligence module: ONLINE
-              </div>
-
-            </div>
-
-
-            <div class="skill-panel" id="web">
-
-              <div class="terminal-label">WEB_SYSTEMS</div>
-
-              <h3>WEB / BACKEND</h3>
-
-              <div class="skill-tags-large">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>JavaScript</span>
-                <span>Flask</span>
-                <span>REST API</span>
-                <span>Git</span>
-                <span>GitHub</span>
-              </div>
-
-              <div class="terminal-output">
-                &gt; frontend systems ready<br>
-                &gt; REST interface detected<br>
-                &gt; deployment architecture: READY
-              </div>
-
-            </div>
-
-
-            <div class="skill-panel" id="data">
-
-              <div class="terminal-label">DATA_CORE</div>
-
-              <h3>DATABASES / CLOUD</h3>
-
-              <div class="skill-tags-large">
-                <span>MS SQL Server</span>
-                <span>SQLite</span>
-                <span>Google Cloud</span>
-                <span>Vertex AI</span>
-                <span>Data Analysis</span>
-                <span>Risk Assessment</span>
-              </div>
-
-              <div class="terminal-output">
-                &gt; persistence layer active<br>
-                &gt; cloud infrastructure detected<br>
-                &gt; data core: STABLE
-              </div>
-
-            </div>
-
-
-            <div class="skill-panel" id="systems">
-
-              <div class="terminal-label">SYSTEMS_DEFENSE</div>
-
-              <h3>IOT / SECURITY</h3>
-
-              <div class="skill-tags-large">
-                <span>IoT Security</span>
-                <span>Edge Computing</span>
-                <span>CNN</span>
-                <span>LSTM</span>
-                <span>Risk Assessment</span>
-              </div>
-
-              <div class="terminal-output">
-                &gt; edge systems identified<br>
-                &gt; security layer available<br>
-                &gt; perimeter: SECURED
-              </div>
-
-            </div>
-
-          </div>
+            <a href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
+               target="_blank">
+                LINKEDIN
+            </a>
 
         </div>
 
-      </div>
-    </section>
+    </div>
 
 
-    <!-- =====================================================
-         PROJECTS
-    ====================================================== -->
+    <!-- PROFILE IMAGE -->
 
-    <section class="section projects-section" id="projects">
+    <div class="hero-right">
 
-      <div class="section-number">04 / CASE FILES</div>
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
+        <div class="profile-orbit orbit-three"></div>
 
-      <div class="section-heading">
-        <span>ARCHIVE // ACTIVE INVESTIGATIONS</span>
-        <h2>SELECTED<br><em>PROJECTS</em></h2>
-      </div>
+        <div class="profile-card">
 
-      <div class="projects">
-
-        <!-- PROJECT 1 -->
-
-        <article class="project-card featured-project">
-
-          <div class="project-visual predictor-visual">
-
-            <div class="radar">
-              <div class="radar-circle"></div>
-              <div class="radar-circle"></div>
-              <div class="radar-circle"></div>
-              <div class="radar-line"></div>
-              <div class="radar-point point-one"></div>
-              <div class="radar-point point-two"></div>
-              <div class="radar-point point-three"></div>
+            <div class="profile-top">
+                <span>IDENTITY VERIFIED</span>
+                <span class="green-dot"></span>
             </div>
 
-            <div class="prediction-console">
-              <div class="console-header">
-                BLACK PREDICTOR
-                <span>● LIVE</span>
-              </div>
+            <div class="profile-image-wrap">
 
-              <div class="console-row">
-                <span>GRID LOAD</span>
-                <strong>81.4%</strong>
-              </div>
+                <div class="image-glow"></div>
 
-              <div class="console-row">
-                <span>RISK</span>
-                <strong class="risk">17.4%</strong>
-              </div>
+                <img
+               src="assets/manas.jpg"
+               alt="Manashvi Sharma"
+               class="profile-image"
+             >
 
-              <div class="console-row">
-                <span>STATUS</span>
-                <strong>STABLE</strong>
-              </div>
+                <div class="image-scan"></div>
 
-              <div class="console-bar">
-                <i></i>
-              </div>
             </div>
 
-          </div>
+            <div class="profile-info">
 
-          <div class="project-info">
+                <div>
+                    <span class="label">CODENAME</span>
+                    <strong>MANAS</strong>
+                </div>
 
-            <div class="project-meta">
-              <span>CASE 001</span>
-              <span>ML / BACKEND</span>
+                <div>
+                    <span class="label">STATUS</span>
+                    <strong>BUILDING</strong>
+                </div>
+
             </div>
 
-            <h3>BLACK<br><em>PREDICTOR</em></h3>
+        </div>
 
-            <p>
-              Predictive grid reliability platform using historical
-              infrastructure and environmental data to forecast
-              power outage risk.
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="stat-card">
+
+        <span class="stat-number">9.1</span>
+
+        <span class="stat-label">
+            CGPA
+        </span>
+
+        <span class="stat-description">
+            CURRENT ACADEMIC RECORD
+        </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-number">4</span>
+
+        <span class="stat-label">
+            MAJOR BUILDS
+        </span>
+
+        <span class="stat-description">
+            FULL-STACK / AI / SECURITY
+        </span>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-number">83+</span>
+
+        <span class="stat-label">
+            LEETCODE
+        </span>
+
+        <span class="stat-description">
+            C++ PROBLEMS SOLVED
+        </span>
+
+        <a href="https://leetcode.com/u/manas765/"
+           target="_blank"
+           class="stat-link">
+            VIEW PROFILE →
+        </a>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <span class="stat-number">TOP 10</span>
+
+        <span class="stat-label">
+            HACKTRAX 2.0
+        </span>
+
+        <span class="stat-description">
+            FINALIST
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ABOUT
+===================================================== -->
+
+<section id="about" class="section about-section">
+
+    <div class="section-heading">
+
+        <span class="section-number">01</span>
+
+        <div>
+            <p class="eyebrow">IDENTITY FILE</p>
+            <h2>THE PERSON<br><span>BEHIND THE CODE</span></h2>
+        </div>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <div class="about-text">
+
+            <p class="large-text">
+                I am a Computer Science & Engineering student at
+                <strong>SRM Institute of Science and Technology</strong>,
+                focused on turning ideas into working systems.
             </p>
 
-            <div class="project-stack">
-              <span>PYTHON</span>
-              <span>FLASK</span>
-              <span>SCIKIT-LEARN</span>
-              <span>SQLITE</span>
-              <span>REST API</span>
+            <p>
+                My work spans full-stack development, machine learning,
+                explainable AI, cybersecurity, data analysis and
+                intelligent systems.
+            </p>
+
+            <p>
+                I enjoy taking a problem apart, understanding the
+                underlying system and building something practical
+                around it.
+            </p>
+
+        </div>
+
+
+        <div class="about-terminal">
+
+            <div class="terminal-header">
+                <span></span>
+                <span></span>
+                <span></span>
+                <label>BATCOMPUTER // PROFILE</label>
             </div>
 
-            <div class="project-actions">
-              <button class="case-button" data-case="predictor">
-                OPEN CASE FILE ↗
-              </button>
+            <div class="terminal-body">
 
-              <a
-                href="https://github.com/manas765/Black.Predictor-"
-                target="_blank"
-                rel="noopener"
-              >
-                GITHUB ↗
-              </a>
+                <p>
+                    <span class="terminal-green">></span>
+                    identity.load()
+                </p>
+
+                <p class="terminal-output">
+                    MANASHVI SHARMA
+                </p>
+
+                <p>
+                    <span class="terminal-green">></span>
+                    education.current()
+                </p>
+
+                <p class="terminal-output">
+                    B.TECH COMPUTER SCIENCE & ENGINEERING
+                </p>
+
+                <p>
+                    <span class="terminal-green">></span>
+                    university.locate()
+                </p>
+
+                <p class="terminal-output">
+                    SRM INSTITUTE OF SCIENCE & TECHNOLOGY
+                </p>
+
+                <p>
+                    <span class="terminal-green">></span>
+                    system.status()
+                </p>
+
+                <p class="terminal-output green">
+                    ONLINE // BUILDING
+                </p>
+
             </div>
 
-          </div>
+        </div>
 
-        </article>
+    </div>
+
+</section>
 
 
-        <!-- PROJECT 2 -->
+<!-- =====================================================
+     PROJECTS
+===================================================== -->
+
+<section id="projects" class="section projects-section">
+
+    <div class="section-heading">
+
+        <span class="section-number">02</span>
+
+        <div>
+            <p class="eyebrow">CASE FILES</p>
+
+            <h2>
+                SELECTED
+                <span>PROJECTS</span>
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <p class="section-intro">
+        Systems I have designed, engineered and experimented with —
+        ranging from financial technology and social platforms to
+        explainable AI and cybersecurity.
+    </p>
+
+
+    <div class="projects-grid">
+
+
+        <!-- PROJECT 01 -->
 
         <article class="project-card">
 
-          <div class="project-visual drink-visual">
-
-            <div class="can">
-              <div class="can-top"></div>
-              <div class="can-body">
-                <span>SOFT</span>
-                <strong>DRINK</strong>
-                <small>ORIGINAL</small>
-              </div>
-              <div class="can-bottom"></div>
+            <div class="project-number">
+                CASE FILE // 01
             </div>
 
-            <div class="product-orbit orbit-a"></div>
-            <div class="product-orbit orbit-b"></div>
-
-          </div>
-
-          <div class="project-info">
-
-            <div class="project-meta">
-              <span>CASE 002</span>
-              <span>FRONTEND</span>
+            <div class="project-icon">
+                ₿
             </div>
 
-            <h3>SOFT<br><em>DRINK</em></h3>
+            <h3>
+                LEDGER
+            </h3>
 
-            <p>
-              Responsive beverage brand landing page with
-              interactive navigation, product showcase and
-              smooth CSS/JavaScript interactions.
+            <p class="project-type">
+                PERSONAL FINANCE & BUDGET TRACKER
             </p>
 
-            <div class="project-stack">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JAVASCRIPT</span>
-              <span>RESPONSIVE UI</span>
+            <p class="project-description">
+                A full-stack budget tracking application for managing
+                income and expenses with recurring transactions,
+                category filtering and date-range queries.
+            </p>
+
+            <ul class="project-features">
+
+                <li>
+                    CRUD transaction management
+                </li>
+
+                <li>
+                    Custom SVG projected-balance chart
+                </li>
+
+                <li>
+                    GitHub-style spending heatmap
+                </li>
+
+                <li>
+                    Light / dark design system
+                </li>
+
+            </ul>
+
+            <div class="tech-stack">
+
+                <span>NODE.JS</span>
+                <span>EXPRESS</span>
+                <span>JAVASCRIPT</span>
+
             </div>
 
-            <div class="project-actions">
-              <button class="case-button" data-case="softdrink">
-                OPEN CASE FILE ↗
-              </button>
-
-              <a
-                href="https://github.com/manas765"
-                target="_blank"
-                rel="noopener"
-              >
-                SOURCE ↗
-              </a>
-            </div>
-
-          </div>
+            <a href="https://github.com/manas765"
+               target="_blank"
+               class="project-link">
+                OPEN CASE FILE →
+            </a>
 
         </article>
 
-      </div>
-    </section>
+
+        <!-- PROJECT 02 -->
+
+        <article class="project-card featured">
+
+            <div class="project-number">
+                CASE FILE // 02
+            </div>
+
+            <div class="project-icon">
+                ♪
+            </div>
+
+            <h3>
+                VIBR
+            </h3>
+
+            <p class="project-type">
+                MUSIC DISCOVERY PLATFORM
+            </p>
+
+            <p class="project-description">
+                A full-stack social music discovery platform where
+                users can discover, rate and follow music through a
+                custom interactive experience.
+            </p>
+
+            <ul class="project-features">
+
+                <li>
+                    Custom 3D music card interface
+                </li>
+
+                <li>
+                    Live YouTube search & channel data
+                </li>
+
+                <li>
+                    Supabase authentication & PostgreSQL
+                </li>
+
+                <li>
+                    Row-level security & persistent profiles
+                </li>
+
+                <li>
+                    Vercel serverless API functions
+                </li>
+
+            </ul>
+
+            <div class="tech-stack">
+
+                <span>REACT</span>
+                <span>VITE</span>
+                <span>SUPABASE</span>
+                <span>VERCEL</span>
+
+            </div>
+
+            <a href="https://github.com/manas765"
+               target="_blank"
+               class="project-link">
+                OPEN CASE FILE →
+            </a>
+
+        </article>
 
 
-    <!-- =====================================================
-         CODING TERMINAL
-    ====================================================== -->
+        <!-- PROJECT 03 -->
 
-    <section class="section terminal-section">
+        <article class="project-card">
 
-      <div class="section-number">05 / PROBLEM SOLVING</div>
+            <div class="project-number">
+                CASE FILE // 03
+            </div>
 
-      <div class="coding-terminal">
+            <div class="project-icon">
+                ◈
+            </div>
 
-        <div class="terminal-top">
-          <div>
-            <span class="terminal-dot"></span>
-            LEETCODE_TERMINAL
-          </div>
+            <h3>
+                ALT-CREDIT LEDGER
+            </h3>
 
-          <span>MANAS765</span>
+            <p class="project-type">
+                EXPLAINABLE ALTERNATIVE CREDIT SCORING
+            </p>
+
+            <p class="project-description">
+                A credit-scoring platform designed for India's
+                thin-file population using alternative signals such
+                as utility payments and rent history.
+            </p>
+
+            <ul class="project-features">
+
+                <li>
+                    XGBoost credit classifier
+                </li>
+
+                <li>
+                    SHAP-based explainability
+                </li>
+
+                <li>
+                    25-model bootstrap ensemble
+                </li>
+
+                <li>
+                    Confidence-aware score range
+                </li>
+
+                <li>
+                    Data-Gap Coach & fairness audit
+                </li>
+
+                <li>
+                    LLM-powered grounded assistant
+                </li>
+
+            </ul>
+
+            <div class="tech-stack">
+
+                <span>FLASK</span>
+                <span>REACT</span>
+                <span>XGBOOST</span>
+                <span>SHAP</span>
+
+            </div>
+
+            <a href="https://github.com/manas765"
+               target="_blank"
+               class="project-link">
+                OPEN CASE FILE →
+            </a>
+
+        </article>
+
+
+        <!-- PROJECT 04 -->
+
+        <article class="project-card">
+
+            <div class="project-number">
+                CASE FILE // 04
+            </div>
+
+            <div class="project-icon">
+                ◉
+            </div>
+
+            <h3>
+                INSIDER THREAT
+            </h3>
+
+            <p class="project-type">
+                ML / CYBERSECURITY ANOMALY DETECTION
+            </p>
+
+            <p class="project-description">
+                An end-to-end anomaly detection pipeline designed
+                to identify potential insider threats using the
+                CERT r4.2 enterprise activity dataset.
+            </p>
+
+            <ul class="project-features">
+
+                <li>
+                    Enterprise activity simulation
+                </li>
+
+                <li>
+                    9 behavioral features from 5 log sources
+                </li>
+
+                <li>
+                    Class imbalance handling
+                </li>
+
+                <li>
+                    Isolation Forest comparison
+                </li>
+
+                <li>
+                    One-Class SVM evaluation
+                </li>
+
+                <li>
+                    Autoencoder anomaly detection
+                </li>
+
+                <li>
+                    Data leakage investigation & validation fix
+                </li>
+
+            </ul>
+
+            <div class="tech-stack">
+
+                <span>PYTHON</span>
+                <span>ML</span>
+                <span>ANOMALY DETECTION</span>
+
+            </div>
+
+            <a href="https://github.com/manas765"
+               target="_blank"
+               class="project-link">
+                OPEN CASE FILE →
+            </a>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SKILLS
+===================================================== -->
+
+<section id="skills" class="section skills-section">
+
+    <div class="section-heading">
+
+        <span class="section-number">03</span>
+
+        <div>
+            <p class="eyebrow">BAT-ARSENAL</p>
+
+            <h2>
+                TECHNICAL
+                <span>ARSENAL</span>
+            </h2>
         </div>
 
-        <div class="terminal-content">
+    </div>
 
-          <div class="terminal-big">
-            <span class="terminal-symbol">&gt;_</span>
-            <strong>PROBLEM<br>SOLVING</strong>
-          </div>
 
-          <div class="terminal-stat">
-            <strong>83</strong>
-            <span>PROBLEMS<br>SOLVED</span>
-          </div>
+    <div class="skills-grid">
 
-          <div class="terminal-topics">
-            <span>BACKTRACKING</span>
-            <span>DYNAMIC PROGRAMMING</span>
-            <span>BINARY SEARCH</span>
-            <span>ARRAYS</span>
-            <span>STRINGS</span>
-            <span>STACK</span>
-          </div>
 
-          <a
-            class="terminal-link"
-            href="https://leetcode.com/u/manas765/"
-            target="_blank"
-            rel="noopener"
-          >
-            VIEW LEETCODE PROFILE ↗
-          </a>
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                </>
+            </div>
+
+            <h3>LANGUAGES</h3>
+
+            <div class="skill-list">
+                <span>PYTHON</span>
+                <span>C++</span>
+                <span>C</span>
+            </div>
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="skill-group">
 
+            <div class="skill-icon">
+                ◇
+            </div>
 
-    <!-- =====================================================
-         RECORDS
-    ====================================================== -->
+            <h3>WEB</h3>
 
-    <section class="section records-section" id="records">
+            <div class="skill-list">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JAVASCRIPT</span>
+                <span>REACT</span>
+            </div>
 
-      <div class="section-number">06 / RECORDS</div>
-
-      <div class="section-heading center">
-        <span>ARCHIVE // VERIFIED</span>
-        <h2>ACHIEVEMENTS &<br><em>CERTIFICATIONS</em></h2>
-      </div>
-
-      <div class="records-grid">
-
-        <div class="record-card">
-          <span class="record-number">01</span>
-          <span class="record-type">HACKATHON</span>
-          <h3>HACKTRAX<br><em>2.0</em></h3>
-          <p>Top 10 Finalist</p>
-          <div class="record-line"></div>
         </div>
 
-        <div class="record-card">
-          <span class="record-number">02</span>
-          <span class="record-type">SRM / ALEXA CLUB</span>
-          <h3>TOP 10<br><em>TEAM</em></h3>
-          <p>Shortlisted among top 10 teams</p>
-          <div class="record-line"></div>
+
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                API
+            </div>
+
+            <h3>BACKEND</h3>
+
+            <div class="skill-list">
+                <span>FLASK</span>
+                <span>REST API</span>
+                <span>NODE.JS</span>
+                <span>EXPRESS</span>
+            </div>
+
         </div>
 
-        <div class="record-card">
-          <span class="record-number">03</span>
-          <span class="record-type">ORACLE</span>
-          <h3>FOUNDATIONS<br><em>ASSOCIATE</em></h3>
-          <p>Oracle Certified Foundations Associate</p>
-          <div class="record-line"></div>
+
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                AI
+            </div>
+
+            <h3>AI / ML</h3>
+
+            <div class="skill-list">
+                <span>PYTORCH</span>
+                <span>SCIKIT-LEARN</span>
+                <span>NUMPY</span>
+                <span>PANDAS</span>
+                <span>XGBOOST</span>
+                <span>SHAP</span>
+            </div>
+
         </div>
 
-        <div class="record-card">
-          <span class="record-number">04</span>
-          <span class="record-type">ORACLE AI</span>
-          <h3>AI AGENT<br><em>STUDIO</em></h3>
-          <p>Oracle Fusion AI Agent Studio Certified Foundations Associate</p>
-          <div class="record-line"></div>
+
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                DB
+            </div>
+
+            <h3>DATABASES</h3>
+
+            <div class="skill-list">
+                <span>MS SQL SERVER</span>
+                <span>SQLITE</span>
+                <span>POSTGRESQL</span>
+            </div>
+
         </div>
 
-        <div class="record-card">
-          <span class="record-number">05</span>
-          <span class="record-type">CISCO</span>
-          <h3>NETWORKING<br><em>BASICS</em></h3>
-          <p>Cisco Networking Academy</p>
-          <div class="record-line"></div>
+
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                ☁
+            </div>
+
+            <h3>CLOUD / TOOLS</h3>
+
+            <div class="skill-list">
+                <span>GIT</span>
+                <span>GITHUB</span>
+                <span>GOOGLE CLOUD</span>
+                <span>VERTEX AI</span>
+                <span>VERCEL</span>
+            </div>
+
         </div>
 
-      </div>
-    </section>
 
+        <div class="skill-group">
 
-    <!-- =====================================================
-         CONNECT
-    ====================================================== -->
+            <div class="skill-icon">
+                ◉
+            </div>
 
-    <section class="section connect-section">
+            <h3>SECURITY / IOT</h3>
 
-      <div class="section-number">07 / CONNECT</div>
+            <div class="skill-list">
+                <span>IOT SECURITY</span>
+                <span>EDGE COMPUTING</span>
+                <span>CNN</span>
+                <span>LSTM</span>
+            </div>
 
-      <div class="section-heading center">
-        <span>COMMUNICATIONS CHANNEL</span>
-        <h2>FIND ME<br><em>ONLINE</em></h2>
-      </div>
-
-      <div class="social-grid">
-
-        <a
-          href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
-          target="_blank"
-          rel="noopener"
-          class="social-card linkedin"
-        >
-          <span class="social-icon">in</span>
-          <div>
-            <span>PROFESSIONAL NETWORK</span>
-            <strong>LINKEDIN</strong>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a
-          href="https://github.com/manas765"
-          target="_blank"
-          rel="noopener"
-          class="social-card github"
-        >
-          <span class="social-icon">◇</span>
-          <div>
-            <span>CODE / PROJECTS</span>
-            <strong>GITHUB</strong>
-          </div>
-          <b>↗</b>
-        </a>
-
-        <a
-          href="https://leetcode.com/u/manas765/"
-          target="_blank"
-          rel="noopener"
-          class="social-card leetcode"
-        >
-          <span class="social-icon">&lt;&gt;</span>
-          <div>
-            <span>PROBLEM SOLVING</span>
-            <strong>LEETCODE</strong>
-          </div>
-          <b>↗</b>
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         CONTACT / BAT SIGNAL
-    ====================================================== -->
-
-    <section class="section contact-section" id="contact">
-
-      <div class="contact-signal">
-        <div class="giant-bat">
-          <span></span>
         </div>
-      </div>
 
-      <div class="contact-content">
 
-        <span class="contact-eyebrow">THE SIGNAL IS ACTIVE</span>
+        <div class="skill-group">
+
+            <div class="skill-icon">
+                Σ
+            </div>
+
+            <h3>CORE</h3>
+
+            <div class="skill-list">
+                <span>DATA ANALYSIS</span>
+                <span>FEATURE ENGINEERING</span>
+                <span>RISK ASSESSMENT</span>
+                <span>STATISTICAL MODELING</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ACHIEVEMENTS
+===================================================== -->
+
+<section class="section achievements-section">
+
+    <div class="section-heading">
+
+        <span class="section-number">04</span>
+
+        <div>
+            <p class="eyebrow">RECORDS</p>
+
+            <h2>
+                ACHIEVEMENTS &
+                <span>CERTIFICATIONS</span>
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card">
+
+            <span class="achievement-number">
+                01
+            </span>
+
+            <div>
+
+                <h3>
+                    TOP 10 FINALIST
+                </h3>
+
+                <p>
+                    Hacktrax 2.0
+                </p>
+
+                <small>
+                    Shortlisted among the top 10 teams.
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <span class="achievement-number">
+                02
+            </span>
+
+            <div>
+
+                <h3>
+                    ALEXA CLUB
+                </h3>
+
+                <p>
+                    SRM
+                </p>
+
+                <small>
+                    Shortlisted among the top 10 teams.
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <span class="achievement-number">
+                03
+            </span>
+
+            <div>
+
+                <h3>
+                    ORACLE
+                </h3>
+
+                <p>
+                    Certified Foundations Associate
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <span class="achievement-number">
+                04
+            </span>
+
+            <div>
+
+                <h3>
+                    ORACLE FUSION AI
+                </h3>
+
+                <p>
+                    AI Agent Studio Certified Foundations Associate
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="achievement-card">
+
+            <span class="achievement-number">
+                05
+            </span>
+
+            <div>
+
+                <h3>
+                    CISCO
+                </h3>
+
+                <p>
+                    Networking Basics
+                </p>
+
+                <small>
+                    Network fundamentals, IPv4/IPv6 addressing,
+                    routers and connectivity troubleshooting.
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOCIAL / CONNECT
+===================================================== -->
+
+<section class="connect-section">
+
+    <div class="connect-card">
+
+        <div class="connect-icon">
+            ◉
+        </div>
+
+        <p class="eyebrow">
+            SECURE TRANSMISSION CHANNEL
+        </p>
 
         <h2>
-          LET'S BUILD<br>
-          <em>SOMETHING.</em>
+            GOT A
+            <span>MISSION?</span>
         </h2>
 
         <p>
-          Have an idea, project or technical challenge?
-          Send a signal.
+            Have an idea, project or challenge?
+            Let's build something worth investigating.
         </p>
 
-        <a
-          href="mailto:manashvisharma07@gmail.com"
-          class="email-button magnetic"
-        >
-          manashvisharma07@gmail.com
-          <span>↗</span>
+        <a href="mailto:manashvisharma07@gmail.com"
+           class="btn primary">
+            SEND TRANSMISSION →
         </a>
 
-        <div class="contact-links">
-          <a href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/" target="_blank">LINKEDIN</a>
-          <a href="https://github.com/manas765" target="_blank">GITHUB</a>
-          <a href="https://leetcode.com/u/manas765/" target="_blank">LEETCODE</a>
-        </div>
-
-      </div>
-
-      <footer>
-        <span>MANASHVI SHARMA © 2026</span>
-        <span>BUILT FROM GOTHAM</span>
-        <span>MS / 27</span>
-      </footer>
-
-    </section>
-
-  </main>
-
-
-  <!-- =====================================================
-       CASE MODAL
-  ====================================================== -->
-
-  <div class="case-modal" id="caseModal">
-
-    <div class="modal-inner">
-
-      <button class="modal-close" id="modalClose">×</button>
-
-      <div class="modal-label">CASE FILE / CLASSIFIED</div>
-
-      <h2 id="modalTitle">BLACK PREDICTOR</h2>
-
-      <div class="modal-content" id="modalContent"></div>
-
     </div>
 
-  </div>
+</section>
 
 
-  <!-- SECRET TERMINAL -->
+<!-- =====================================================
+     CONTACT
+===================================================== -->
 
-  <div class="secret-terminal" id="secretTerminal">
+<section id="contact" class="contact-section">
 
-    <div class="secret-box">
+    <div class="contact-left">
 
-      <button id="secretClose">×</button>
-
-      <div class="secret-header">
-        WAYNE SYSTEMS // ROOT ACCESS
-      </div>
-
-      <div class="secret-body">
-        <p>&gt; ACCESS GRANTED</p>
-        <p>&gt; USER: MANASHVI SHARMA</p>
-        <p>&gt; CLEARANCE: DEVELOPER</p>
-        <p>&gt; SYSTEM STATUS: ONLINE</p>
-        <br>
-        <p class="secret-message">
-          THE NIGHT IS LONG.<br>
-          THE CODE IS LONGER.
+        <p class="eyebrow">
+            ESTABLISH CONNECTION
         </p>
-      </div>
+
+        <h2>
+            FIND
+            <span>MANAS</span>
+        </h2>
+
+        <p>
+            Open channels for collaboration,
+            internships, projects and ideas.
+        </p>
 
     </div>
 
-  </div>
+
+    <div class="contact-links">
+
+        <a href="https://github.com/manas765"
+           target="_blank"
+           class="contact-link">
+
+            <span>GITHUB</span>
+
+            <strong>
+                @manas765
+            </strong>
+
+            <span>↗</span>
+
+        </a>
 
 
-  <script src="script.js"></script>
+        <a href="https://leetcode.com/u/manas765/"
+           target="_blank"
+           class="contact-link">
+
+            <span>LEETCODE</span>
+
+            <strong>
+                manas765
+            </strong>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
+           target="_blank"
+           class="contact-link">
+
+            <span>LINKEDIN</span>
+
+            <strong>
+                MANASHVI SHARMA
+            </strong>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="mailto:manashvisharma07@gmail.com"
+           class="contact-link">
+
+            <span>EMAIL</span>
+
+            <strong>
+                MANASHVISHARMA07@GMAIL.COM
+            </strong>
+
+            <span>↗</span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="footer-left">
+        WAYNE TECH // SECURE CONNECTION
+    </div>
+
+    <div class="footer-center">
+        MS // 001
+    </div>
+
+    <div class="footer-right">
+        © 2026 MANASHVI SHARMA
+    </div>
+
+</footer>
+
+
+</main>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
 
 </body>
 </html>

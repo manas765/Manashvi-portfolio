@@ -1,679 +1,463 @@
 /* =========================================================
+   BATCOMPUTER PORTFOLIO
    MANASHVI SHARMA
-   GOTHAM PORTFOLIO
 ========================================================= */
 
 
 /* =========================================================
-   CURSOR
+   LOADING SCREEN
 ========================================================= */
 
-const cursorDot = document.querySelector(".cursor-dot");
-const cursorRing = document.querySelector(".cursor-ring");
+const loader = document.getElementById("loader");
+const progress = document.querySelector(".loader-progress");
+const percent = document.querySelector(".loader-percent");
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
+let loading = 0;
 
-let ringX = mouseX;
-let ringY = mouseY;
+const loadingInterval = setInterval(() => {
 
-window.addEventListener("mousemove", (e) => {
+    loading += Math.floor(Math.random() * 7) + 3;
 
-  mouseX = e.clientX;
-  mouseY = e.clientY;
+    if (loading >= 100) {
 
-  if (cursorDot) {
-    cursorDot.style.left = `${mouseX}px`;
-    cursorDot.style.top = `${mouseY}px`;
-  }
+        loading = 100;
 
-});
+        clearInterval(loadingInterval);
 
-function animateCursor() {
+        setTimeout(() => {
 
-  ringX += (mouseX - ringX) * 0.13;
-  ringY += (mouseY - ringY) * 0.13;
+            loader.classList.add("hide");
 
-  if (cursorRing) {
-    cursorRing.style.left = `${ringX}px`;
-    cursorRing.style.top = `${ringY}px`;
-  }
+        }, 500);
+    }
 
-  requestAnimationFrame(animateCursor);
+    progress.style.width = loading + "%";
+    percent.textContent = loading + "%";
+
+}, 80);
+
+
+/* =========================================================
+   NAVIGATION ACTIVE STATE
+========================================================= */
+
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".navbar nav a");
+
+function updateNavigation() {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop = section.offsetTop - 180;
+
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+        }
+
+    });
+
+    navLinks.forEach(link => {
+
+        link.style.color = "";
+
+        if (
+            link.getAttribute("href") === "#" + current
+        ) {
+
+            link.style.color = "#f4c542";
+
+        }
+
+    });
+
 }
 
-animateCursor();
-
-
-document.querySelectorAll("a, button, .project-card, .skill-tags-large span")
-  .forEach((element) => {
-
-    element.addEventListener("mouseenter", () => {
-      cursorRing?.classList.add("active");
-    });
-
-    element.addEventListener("mouseleave", () => {
-      cursorRing?.classList.remove("active");
-    });
-
-  });
+window.addEventListener(
+    "scroll",
+    updateNavigation
+);
 
 
 /* =========================================================
-   PARALLAX HERO
+   3D PROJECT CARDS
 ========================================================= */
 
-const gotham = document.querySelector(".gotham");
-const heroContent = document.querySelector(".hero-content");
-const signal = document.querySelector(".bat-signal");
+const cards = document.querySelectorAll(".project-card");
 
-window.addEventListener("mousemove", (e) => {
+cards.forEach(card => {
 
-  if (window.innerWidth < 800) return;
+    card.addEventListener("mousemove", event => {
 
-  const x = (e.clientX / window.innerWidth - 0.5);
-  const y = (e.clientY / window.innerHeight - 0.5);
+        const rect = card.getBoundingClientRect();
 
-  if (gotham) {
-    gotham.style.transform = `
-      translate3d(${x * -12}px, ${y * -8}px, 0)
-    `;
-  }
+        const x =
+            event.clientX - rect.left;
 
-  if (heroContent) {
-    heroContent.style.transform = `
-      translate3d(${x * 8}px, ${y * 6}px, 0)
-    `;
-  }
+        const y =
+            event.clientY - rect.top;
 
-  if (signal) {
-    signal.style.transform = `
-      translateX(calc(-50% + ${x * 25}px))
-      translateY(${y * 15}px)
-    `;
-  }
+        const centerX =
+            rect.width / 2;
 
-});
+        const centerY =
+            rect.height / 2;
+
+        const rotateX =
+            ((y - centerY) / centerY) * -3;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 3;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+    });
 
 
-/* =========================================================
-   SCROLL PARALLAX
-========================================================= */
+    card.addEventListener("mouseleave", () => {
 
-window.addEventListener("scroll", () => {
+        card.style.transform = "";
 
-  const scrollY = window.scrollY;
-
-  const cityBack = document.querySelector(".city-back");
-  const cityMid = document.querySelector(".city-mid");
-  const cityFront = document.querySelector(".city-front");
-
-  if (cityBack) {
-    cityBack.style.transform = `
-      translateY(${scrollY * 0.035}px)
-      scale(1.2)
-    `;
-  }
-
-  if (cityMid) {
-    cityMid.style.transform = `
-      translateY(${scrollY * 0.06}px)
-      scale(1.1)
-    `;
-  }
-
-  if (cityFront) {
-    cityFront.style.transform = `
-      translateY(${scrollY * 0.1}px)
-    `;
-  }
+    });
 
 });
 
 
 /* =========================================================
-   RAIN ENGINE
+   PROFILE CARD 3D MOVEMENT
 ========================================================= */
 
-const canvas = document.getElementById("rainCanvas");
-const ctx = canvas?.getContext("2d");
+const profileCard =
+    document.querySelector(".profile-card");
 
-let rainDrops = [];
-let rainWidth = window.innerWidth;
-let rainHeight = window.innerHeight;
+if (profileCard) {
 
-function resizeRain() {
+    profileCard.addEventListener(
+        "mousemove",
+        event => {
 
-  if (!canvas || !ctx) return;
+            const rect =
+                profileCard.getBoundingClientRect();
 
-  rainWidth = window.innerWidth;
-  rainHeight = window.innerHeight;
+            const x =
+                event.clientX - rect.left;
 
-  canvas.width = rainWidth * window.devicePixelRatio;
-  canvas.height = rainHeight * window.devicePixelRatio;
+            const y =
+                event.clientY - rect.top;
 
-  canvas.style.width = `${rainWidth}px`;
-  canvas.style.height = `${rainHeight}px`;
+            const rotateY =
+                ((x / rect.width) - 0.5) * 12;
 
-  ctx.scale(
-    window.devicePixelRatio,
-    window.devicePixelRatio
-  );
+            const rotateX =
+                ((y / rect.height) - 0.5) * -12;
 
-  createRain();
-}
+            profileCard.style.transform =
+                `perspective(1200px)
+                 rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateY(-10px)`;
 
-function createRain() {
-
-  rainDrops = [];
-
-  const amount = Math.min(
-    220,
-    Math.floor(rainWidth / 5)
-  );
-
-  for (let i = 0; i < amount; i++) {
-
-    rainDrops.push({
-      x: Math.random() * rainWidth,
-      y: Math.random() * rainHeight,
-      length: 8 + Math.random() * 22,
-      speed: 4 + Math.random() * 10,
-      opacity: 0.08 + Math.random() * 0.25
-    });
-
-  }
-
-}
-
-function drawRain() {
-
-  if (!ctx) return;
-
-  ctx.clearRect(
-    0,
-    0,
-    rainWidth,
-    rainHeight
-  );
-
-  rainDrops.forEach((drop) => {
-
-    ctx.beginPath();
-
-    ctx.moveTo(drop.x, drop.y);
-
-    ctx.lineTo(
-      drop.x - 1.5,
-      drop.y + drop.length
+        }
     );
 
-    ctx.strokeStyle =
-      `rgba(190, 200, 210, ${drop.opacity})`;
 
-    ctx.lineWidth = 0.7;
+    profileCard.addEventListener(
+        "mouseleave",
+        () => {
 
-    ctx.stroke();
+            profileCard.style.transform =
+                `perspective(1200px)
+                 rotateY(-7deg)
+                 rotateX(3deg)`;
 
-    drop.y += drop.speed;
-
-    drop.x -= 0.8;
-
-    if (drop.y > rainHeight) {
-
-      drop.y = -drop.length;
-
-      drop.x = Math.random() * rainWidth;
-
-    }
-
-    if (drop.x < -20) {
-      drop.x = rainWidth + 20;
-    }
-
-  });
-
-  requestAnimationFrame(drawRain);
-}
-
-window.addEventListener("resize", resizeRain);
-
-resizeRain();
-drawRain();
-
-
-/* =========================================================
-   BATCOMPUTER TABS
-========================================================= */
-
-const skillTabs = document.querySelectorAll(".skill-tab");
-const skillPanels = document.querySelectorAll(".skill-panel");
-
-skillTabs.forEach((tab) => {
-
-  tab.addEventListener("click", () => {
-
-    const target = tab.dataset.skill;
-
-    skillTabs.forEach((item) => {
-      item.classList.remove("active");
-    });
-
-    skillPanels.forEach((panel) => {
-      panel.classList.remove("active");
-    });
-
-    tab.classList.add("active");
-
-    const targetPanel = document.getElementById(target);
-
-    if (targetPanel) {
-      targetPanel.classList.add("active");
-    }
-
-  });
-
-});
-
-
-/* =========================================================
-   CASE FILE MODALS
-========================================================= */
-
-const caseModal = document.getElementById("caseModal");
-const modalClose = document.getElementById("modalClose");
-const modalTitle = document.getElementById("modalTitle");
-const modalContent = document.getElementById("modalContent");
-
-const caseData = {
-
-  predictor: {
-
-    title: "BLACK PREDICTOR",
-
-    content: `
-      <h4>MISSION</h4>
-
-      <p>
-        A predictive grid reliability platform designed to
-        forecast power outage risk using historical
-        infrastructure and environmental data.
-      </p>
-
-      <h4>ARCHITECTURE</h4>
-
-      <ul>
-        <li>Machine learning prediction pipeline</li>
-        <li>Flask REST APIs</li>
-        <li>SQLite data persistence</li>
-        <li>Prediction history management</li>
-        <li>Interactive analytics dashboard</li>
-      </ul>
-
-      <h4>TECH STACK</h4>
-
-      <p>
-        Python · Flask · scikit-learn · SQLite · REST API
-      </p>
-
-      <h4>FUTURE SYSTEMS</h4>
-
-      <p>
-        Modular architecture supporting future Digital Twin
-        modelling and IoT-based monitoring.
-      </p>
-    `
-
-  },
-
-  softdrink: {
-
-    title: "SOFTDRINK",
-
-    content: `
-      <h4>MISSION</h4>
-
-      <p>
-        A responsive beverage brand landing page focused on
-        visual presentation, intuitive navigation and
-        interactive product showcasing.
-      </p>
-
-      <h4>FEATURES</h4>
-
-      <ul>
-        <li>Responsive layout</li>
-        <li>Interactive navigation</li>
-        <li>Product showcase</li>
-        <li>Smooth CSS animations</li>
-        <li>JavaScript interactions</li>
-        <li>Semantic HTML structure</li>
-      </ul>
-
-      <h4>TECH STACK</h4>
-
-      <p>
-        HTML · CSS · JavaScript · Responsive Web Design
-      </p>
-    `
-
-  }
-
-};
-
-
-document.querySelectorAll(".case-button")
-  .forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      const caseId = button.dataset.case;
-
-      const data = caseData[caseId];
-
-      if (!data) return;
-
-      modalTitle.textContent = data.title;
-
-      modalContent.innerHTML = data.content;
-
-      caseModal.classList.add("open");
-
-      document.body.classList.add("modal-open");
-
-    });
-
-  });
-
-
-function closeModal() {
-
-  caseModal.classList.remove("open");
-
-  document.body.classList.remove("modal-open");
-
-}
-
-modalClose?.addEventListener("click", closeModal);
-
-caseModal?.addEventListener("click", (event) => {
-
-  if (event.target === caseModal) {
-    closeModal();
-  }
-
-});
-
-document.addEventListener("keydown", (event) => {
-
-  if (event.key === "Escape") {
-    closeModal();
-  }
-
-});
-
-
-/* =========================================================
-   MAGNETIC BUTTONS
-========================================================= */
-
-const magneticElements =
-  document.querySelectorAll(".magnetic");
-
-magneticElements.forEach((element) => {
-
-  element.addEventListener("mousemove", (event) => {
-
-    const rect = element.getBoundingClientRect();
-
-    const x =
-      event.clientX -
-      rect.left -
-      rect.width / 2;
-
-    const y =
-      event.clientY -
-      rect.top -
-      rect.height / 2;
-
-    element.style.transform =
-      `translate(${x * 0.12}px, ${y * 0.12}px)`;
-
-  });
-
-  element.addEventListener("mouseleave", () => {
-
-    element.style.transform = "";
-
-  });
-
-});
-
-
-/* =========================================================
-   REVEAL SECTIONS
-========================================================= */
-
-const revealTargets = document.querySelectorAll(
-  ".section-heading, .glass-card, .about-copy, .computer, .project-card, .coding-terminal, .record-card, .social-card"
-);
-
-const revealObserver = new IntersectionObserver(
-  (entries) => {
-
-    entries.forEach((entry) => {
-
-      if (!entry.isIntersecting) return;
-
-      entry.target.animate(
-        [
-          {
-            opacity: 0,
-            transform: "translateY(35px)"
-          },
-          {
-            opacity: 1,
-            transform: "translateY(0)"
-          }
-        ],
-        {
-          duration: 850,
-          easing: "cubic-bezier(.2,.8,.2,1)",
-          fill: "forwards"
         }
-      );
+    );
 
-      revealObserver.unobserve(entry.target);
+}
 
-    });
 
-  },
-  {
-    threshold: 0.12
-  }
-);
+/* =========================================================
+   REVEAL ANIMATION
+========================================================= */
 
-revealTargets.forEach((element) => {
+const revealElements =
+    document.querySelectorAll(
+        ".section, .stat-card, .project-card, .skill-group, .achievement-card"
+    );
 
-  element.style.opacity = "0";
+const revealObserver =
+    new IntersectionObserver(
+        entries => {
 
-  revealObserver.observe(element);
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add(
+                        "revealed"
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    element.classList.add("reveal");
+
+    revealObserver.observe(element);
 
 });
 
 
 /* =========================================================
-   RECORD CARD STAGGER
+   MAGNETIC BUTTON EFFECT
 ========================================================= */
 
-document.querySelectorAll(".record-card")
-  .forEach((card, index) => {
+const buttons =
+    document.querySelectorAll(".btn");
 
-    card.style.transitionDelay =
-      `${index * 60}ms`;
+buttons.forEach(button => {
 
-  });
+    button.addEventListener(
+        "mousemove",
+        event => {
+
+            const rect =
+                button.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const moveX =
+                (x - rect.width / 2) * 0.12;
+
+            const moveY =
+                (y - rect.height / 2) * 0.12;
+
+            button.style.transform =
+                `translate(${moveX}px, ${moveY}px)`;
+
+        }
+    );
+
+
+    button.addEventListener(
+        "mouseleave",
+        () => {
+
+            button.style.transform = "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   TERMINAL TYPING EFFECT
+========================================================= */
+
+const terminalOutputs =
+    document.querySelectorAll(
+        ".terminal-output"
+    );
+
+terminalOutputs.forEach((element, index) => {
+
+    const originalText =
+        element.textContent.trim();
+
+    element.textContent = "";
+
+    let character = 0;
+
+    setTimeout(() => {
+
+        const typing =
+            setInterval(() => {
+
+                element.textContent +=
+                    originalText[character];
+
+                character++;
+
+                if (
+                    character >=
+                    originalText.length
+                ) {
+
+                    clearInterval(typing);
+
+                }
+
+            }, 25);
+
+    }, 1000 + (index * 600));
+
+});
+
+
+/* =========================================================
+   CURSOR GLOW
+========================================================= */
+
+const cursorGlow =
+    document.createElement("div");
+
+cursorGlow.style.position = "fixed";
+cursorGlow.style.width = "250px";
+cursorGlow.style.height = "250px";
+cursorGlow.style.borderRadius = "50%";
+cursorGlow.style.pointerEvents = "none";
+cursorGlow.style.zIndex = "-1";
+
+cursorGlow.style.background =
+    "radial-gradient(circle, rgba(244,197,66,0.045), transparent 65%)";
+
+cursorGlow.style.transform =
+    "translate(-50%, -50%)";
+
+document.body.appendChild(cursorGlow);
+
+
+document.addEventListener(
+    "mousemove",
+    event => {
+
+        cursorGlow.style.left =
+            event.clientX + "px";
+
+        cursorGlow.style.top =
+            event.clientY + "px";
+
+    }
+);
 
 
 /* =========================================================
    EASTER EGG
-   TYPE: BAT
+   TYPE "BATMAN" ON KEYBOARD
 ========================================================= */
 
-let secretInput = "";
+let secretCode = "";
 
-document.addEventListener("keydown", (event) => {
+document.addEventListener(
+    "keydown",
+    event => {
 
-  if (
-    event.key.length === 1 &&
-    /[a-z]/i.test(event.key)
-  ) {
+        secretCode +=
+            event.key.toLowerCase();
 
-    secretInput += event.key.toLowerCase();
+        if (secretCode.length > 6) {
 
-    if (secretInput.length > 3) {
-      secretInput =
-        secretInput.slice(-3);
-    }
-
-    if (secretInput === "bat") {
-      openSecretTerminal();
-      secretInput = "";
-    }
-
-  }
-
-});
-
-
-const secretTerminal =
-  document.getElementById("secretTerminal");
-
-const secretClose =
-  document.getElementById("secretClose");
-
-function openSecretTerminal() {
-
-  secretTerminal.classList.add("open");
-
-}
-
-secretClose?.addEventListener("click", () => {
-
-  secretTerminal.classList.remove("open");
-
-});
-
-secretTerminal?.addEventListener("click", (event) => {
-
-  if (event.target === secretTerminal) {
-
-    secretTerminal.classList.remove("open");
-
-  }
-
-});
-
-
-/* =========================================================
-   ACTIVE NAV
-========================================================= */
-
-const sections =
-  document.querySelectorAll("section[id]");
-
-const navLinks =
-  document.querySelectorAll(".side-nav a");
-
-const navObserver =
-  new IntersectionObserver(
-    (entries) => {
-
-      entries.forEach((entry) => {
-
-        if (!entry.isIntersecting) return;
-
-        navLinks.forEach((link) => {
-
-          link.style.color = "";
-
-          link.style.borderColor = "";
-
-        });
-
-        const active =
-          document.querySelector(
-            `.side-nav a[href="#${entry.target.id}"]`
-          );
-
-        if (active) {
-
-          active.style.color =
-            "var(--yellow)";
-
-          active.style.borderColor =
-            "var(--yellow)";
+            secretCode =
+                secretCode.slice(-6);
 
         }
 
-      });
+        if (secretCode === "batman") {
 
-    },
-    {
-      threshold: 0.45
+            activateBatmanMode();
+
+            secretCode = "";
+
+        }
+
     }
-  );
+);
 
-sections.forEach((section) => {
 
-  navObserver.observe(section);
+function activateBatmanMode() {
+
+    document.body.style.transition =
+        "filter 0.5s ease";
+
+    document.body.style.filter =
+        "brightness(1.4)";
+
+    setTimeout(() => {
+
+        document.body.style.filter =
+            "brightness(1)";
+
+    }, 600);
+
+    console.log(
+        "%c BATCOMPUTER ONLINE ",
+        "background:#f4c542;color:#000;padding:10px;font-weight:bold;"
+    );
+
+}
+
+
+/* =========================================================
+   SMOOTH ANCHOR SCROLL
+========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(link => {
+
+    link.addEventListener(
+        "click",
+        event => {
+
+            const target =
+                document.querySelector(
+                    link.getAttribute("href")
+                );
+
+            if (target) {
+
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }
+
+        }
+    );
 
 });
 
 
 /* =========================================================
-   MENU BUTTON
+   CONSOLE MESSAGE
 ========================================================= */
 
-const menuButton =
-  document.getElementById("menuButton");
+console.log(
+    "%c BATCOMPUTER // MANASHVI SHARMA ",
+    "background:#050608;color:#f4c542;font-size:16px;padding:12px;"
+);
 
-const sideNav =
-  document.getElementById("sideNav");
+console.log(
+    "%c SYSTEM STATUS: ONLINE ",
+    "color:#8cff9a;font-weight:bold;"
+);
 
-menuButton?.addEventListener("click", () => {
+console.log(
+    "GitHub: https://github.com/manas765"
+);
 
-  sideNav?.classList.toggle("mobile-visible");
-
-});
-
-
-/* =========================================================
-   CONSOLE EASTER EFFECT
-========================================================= */
-
-console.log(`
-╔══════════════════════════════════════╗
-║       WAYNE SYSTEMS // MS-27         ║
-╠══════════════════════════════════════╣
-║                                      ║
-║  MANASHVI SHARMA                     ║
-║  COMPUTER SCIENCE & ENGINEERING      ║
-║                                      ║
-║  SYSTEM STATUS: ONLINE               ║
-║                                      ║
-║  Try typing "BAT"...                 ║
-║                                      ║
-╚══════════════════════════════════════╝
-`);
-
-
-/* =========================================================
-   PREVENT IMAGE DRAG
-========================================================= */
-
-document.querySelectorAll("img").forEach((img) => {
-
-  img.setAttribute("draggable", "false");
-
-});
+console.log(
+    "LeetCode: https://leetcode.com/u/manas765/"
+);
