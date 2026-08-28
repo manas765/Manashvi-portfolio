@@ -2330,3 +2330,130 @@ footer {
         font-size: 34px;
     }
 }
+/* =========================================================
+   DARK MODE — BATCOMPUTER
+   Keeps the existing design, only deepens the atmosphere
+========================================================= */
+
+:root {
+    --bg: #030405;
+    --surface: #07090b;
+    --surface-2: #0a0c0f;
+    --border: #202328;
+    --text: #d7d9dc;
+    --muted: #73777d;
+}
+
+
+/* Deeper overall background */
+
+body {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,0.015),
+            transparent 45%
+        ),
+        #030405;
+}
+
+
+/* Darker sections */
+
+section,
+.hero,
+.stats,
+.projects-section,
+.about-section,
+.skills-section,
+.contact-section {
+    background-color: transparent;
+}
+
+
+/* Darker cards */
+
+.profile-card,
+.stat-card,
+.project-card,
+.skill-card,
+.connect-card,
+.achievement-card {
+    background-color: rgba(4, 5, 7, 0.92);
+}
+
+
+/* Darker borders */
+
+.profile-card,
+.stat-card,
+.project-card,
+.skill-card,
+.connect-card,
+.achievement-card {
+    border-color: rgba(255,255,255,0.07);
+}
+
+
+/* Reduce the brightness of large atmospheric effects */
+
+.hero::before,
+.hero::after,
+section::before,
+section::after {
+    opacity: 0.35;
+}
+
+
+/* Darker image treatment */
+
+.profile-image {
+    filter:
+        grayscale(100%)
+        contrast(1.08)
+        brightness(0.78);
+}
+
+
+/* Keep your yellow accents,
+   but make the surrounding glow more subtle */
+
+.profile-card {
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.75),
+        0 0 35px rgba(0,0,0,0.45);
+}
+
+
+/* Deeper project/card shadows */
+
+.project-card,
+.stat-card,
+.skill-card,
+.connect-card {
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.45);
+}
+
+
+/* Darker grid */
+
+body::before {
+    opacity: 0.12;
+}
+
+
+/* Darker footer */
+
+footer {
+    background: #020304;
+    border-top-color: rgba(255,255,255,0.06);
+}
+
+
+/* Selection */
+
+::selection {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+}
