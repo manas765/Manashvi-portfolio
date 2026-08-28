@@ -2830,3 +2830,414 @@ img[src*="logo"] {
         bottom: -14px;
     }
 }
+/* =========================================================
+   🦇 BATCOMPUTER 3D DEPTH SYSTEM
+========================================================= */
+
+html {
+    perspective: 1400px;
+}
+
+body {
+    transform-style: preserve-3d;
+}
+
+/* Main sections have actual depth */
+
+.hero,
+.section,
+.stats,
+.contact-section {
+    transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   HERO 3D SPACE
+========================================================= */
+
+.hero {
+    perspective: 1400px;
+    transform-style: preserve-3d;
+}
+
+
+/* Left content floats slightly forward */
+
+.hero-left {
+    transform:
+        translateZ(35px);
+    transform-style: preserve-3d;
+}
+
+
+/* Individual hero elements sit at different depths */
+
+.classification {
+    transform: translateZ(55px);
+}
+
+.hero-small {
+    transform: translateZ(45px);
+}
+
+.hero h1 {
+    transform: translateZ(75px);
+    text-shadow:
+        0 2px 0 #111,
+        0 4px 0 #090a0c,
+        0 10px 25px rgba(0,0,0,0.8);
+}
+
+.hero-title {
+    transform: translateZ(55px);
+}
+
+.hero-description {
+    transform: translateZ(35px);
+}
+
+.hero-buttons {
+    transform: translateZ(65px);
+}
+
+.hero-socials {
+    transform: translateZ(40px);
+}
+
+
+/* =========================================================
+   PROFILE CARD — REAL 3D
+========================================================= */
+
+.hero-right {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+}
+
+
+.profile-card {
+    transform-style: preserve-3d;
+
+    transform:
+        perspective(1100px)
+        rotateY(-8deg)
+        rotateX(4deg)
+        translateZ(50px);
+
+    box-shadow:
+        25px 35px 70px rgba(0,0,0,0.85),
+        -8px -8px 25px rgba(255,255,255,0.015),
+        inset 0 0 35px rgba(255,255,255,0.025);
+
+    transition:
+        transform 0.6s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.5s ease;
+}
+
+
+/* Floating profile card */
+
+.profile-card:hover {
+    transform:
+        perspective(1100px)
+        rotateY(-2deg)
+        rotateX(1deg)
+        translateZ(85px)
+        translateY(-8px);
+
+    box-shadow:
+        35px 45px 100px rgba(0,0,0,0.95),
+        0 0 45px rgba(245,197,24,0.035),
+        inset 0 0 45px rgba(255,255,255,0.03);
+}
+
+
+/* Everything inside the card has depth */
+
+.profile-top {
+    transform: translateZ(25px);
+}
+
+.profile-image-wrap {
+    transform:
+        translateZ(35px)
+        rotateX(1deg);
+
+    box-shadow:
+        0 25px 40px rgba(0,0,0,0.7);
+}
+
+.profile-image {
+    transform: translateZ(20px);
+}
+
+
+/* Information layer */
+
+.profile-info {
+    transform: translateZ(28px);
+}
+
+
+/* =========================================================
+   ORBITING 3D RINGS
+========================================================= */
+
+.profile-orbit {
+    transform-style: preserve-3d;
+    filter:
+        drop-shadow(0 0 12px rgba(170,175,180,0.08));
+}
+
+.orbit-one {
+    transform:
+        translateZ(-40px)
+        rotateX(65deg)
+        rotateZ(-15deg);
+}
+
+.orbit-two {
+    transform:
+        translateZ(-70px)
+        rotateY(65deg);
+}
+
+.orbit-three {
+    transform:
+        translateZ(-100px)
+        rotateX(70deg)
+        rotateY(20deg);
+}
+
+
+/* =========================================================
+   3D PROJECT CARDS
+========================================================= */
+
+.projects-grid {
+    perspective: 1300px;
+    transform-style: preserve-3d;
+}
+
+
+.project-card {
+    transform-style: preserve-3d;
+
+    transform:
+        perspective(1000px)
+        translateZ(0)
+        rotateX(0deg);
+
+    transition:
+        transform 0.45s cubic-bezier(.2,.8,.2,1),
+        box-shadow 0.45s ease,
+        border-color 0.3s ease;
+}
+
+
+/* Lift card on hover */
+
+.project-card:hover {
+    transform:
+        perspective(1000px)
+        translateY(-14px)
+        translateZ(35px)
+        rotateX(2deg);
+
+    box-shadow:
+        0 35px 70px rgba(0,0,0,0.8),
+        0 10px 25px rgba(0,0,0,0.5);
+}
+
+
+/* Content floats above card */
+
+.project-card h3,
+.project-card p,
+.project-card a,
+.project-features,
+.tech-stack {
+    transform: translateZ(18px);
+}
+
+
+/* =========================================================
+   3D STAT CARDS
+========================================================= */
+
+.stats {
+    perspective: 1200px;
+}
+
+.stat-card {
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.stat-card:hover {
+    transform:
+        translateY(-8px)
+        translateZ(25px)
+        rotateX(2deg);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,0.7);
+}
+
+.stat-number {
+    transform: translateZ(25px);
+}
+
+.stat-label,
+.stat-description,
+.stat-link {
+    transform: translateZ(15px);
+}
+
+
+/* =========================================================
+   3D SKILL CARDS
+========================================================= */
+
+.skills-grid {
+    perspective: 1200px;
+}
+
+.skill-card {
+    transform-style: preserve-3d;
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+.skill-card:hover {
+    transform:
+        translateY(-8px)
+        translateZ(25px)
+        rotateX(2deg)
+        rotateY(-2deg);
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.75);
+}
+
+
+/* =========================================================
+   BUTTON DEPTH
+========================================================= */
+
+.btn {
+    transform-style: preserve-3d;
+
+    box-shadow:
+        0 5px 0 rgba(0,0,0,0.7),
+        0 12px 25px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform:
+        translateY(-4px)
+        translateZ(15px);
+
+    box-shadow:
+        0 9px 0 rgba(0,0,0,0.75),
+        0 20px 35px rgba(0,0,0,0.5);
+}
+
+.btn:active {
+    transform:
+        translateY(2px)
+        translateZ(4px);
+
+    box-shadow:
+        0 2px 0 rgba(0,0,0,0.8),
+        0 6px 15px rgba(0,0,0,0.4);
+}
+
+
+/* =========================================================
+   HUD DEPTH
+========================================================= */
+
+.section-heading {
+    transform: translateZ(35px);
+    transform-style: preserve-3d;
+}
+
+.section-intro {
+    transform: translateZ(20px);
+}
+
+
+/* =========================================================
+   DEEP SHADOWS
+========================================================= */
+
+.connect-card,
+.achievement-card {
+    transform-style: preserve-3d;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.65),
+        inset 0 0 25px rgba(255,255,255,0.012);
+}
+
+.connect-card:hover,
+.achievement-card:hover {
+    transform:
+        translateY(-8px)
+        translateZ(25px);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,0.8);
+}
+
+
+/* =========================================================
+   BATCOMPUTER DEPTH LIGHT
+========================================================= */
+
+.profile-card::before {
+    box-shadow:
+        -8px -8px 25px rgba(255,255,255,0.015);
+}
+
+
+/* =========================================================
+   MOBILE — REDUCE 3D
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .hero-left,
+    .hero h1,
+    .hero-title,
+    .hero-description,
+    .hero-buttons,
+    .hero-socials {
+        transform: none;
+    }
+
+    .profile-card {
+        transform:
+            perspective(1000px)
+            rotateY(-3deg)
+            translateZ(20px);
+    }
+
+    .project-card:hover,
+    .stat-card:hover,
+    .skill-card:hover {
+        transform:
+            translateY(-5px);
+    }
+}
