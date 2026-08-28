@@ -461,3 +461,120 @@ console.log(
 console.log(
     "LeetCode: https://leetcode.com/u/manas765/"
 );
+/* =========================================================
+   🦇 BATCOMPUTER ENVIRONMENT PARALLAX
+========================================================= */
+
+const hero = document.querySelector(".hero");
+const heroLeft = document.querySelector(".hero-left");
+const heroRight = document.querySelector(".hero-right");
+
+
+if (
+    hero &&
+    heroLeft &&
+    heroRight &&
+    window.innerWidth > 800
+) {
+
+    hero.addEventListener("mousemove", (event) => {
+
+        const rect = hero.getBoundingClientRect();
+
+        const x =
+            (event.clientX - rect.left) /
+            rect.width -
+            0.5;
+
+        const y =
+            (event.clientY - rect.top) /
+            rect.height -
+            0.5;
+
+
+        /* LEFT CONTENT */
+
+        heroLeft.style.transform = `
+            translate3d(
+                ${x * -8}px,
+                ${y * -5}px,
+                35px
+            )
+        `;
+
+
+        /* PROFILE */
+
+        if (profileCard) {
+
+            profileCard.style.transform = `
+                perspective(1100px)
+                rotateY(${x * 10}deg)
+                rotateX(${y * -7}deg)
+                translateZ(70px)
+                translateY(-4px)
+            `;
+
+        }
+
+
+        /* RIGHT ATMOSPHERE */
+
+        heroRight.style.transform = `
+            translate3d(
+                ${x * 5}px,
+                ${y * 4}px,
+                20px
+            )
+        `;
+    });
+
+
+    hero.addEventListener("mouseleave", () => {
+
+        heroLeft.style.transform =
+            "translate3d(0,0,35px)";
+
+        heroRight.style.transform =
+            "translate3d(0,0,20px)";
+
+        if (profileCard) {
+
+            profileCard.style.transform = `
+                perspective(1100px)
+                rotateY(-8deg)
+                rotateX(4deg)
+                translateZ(50px)
+            `;
+
+        }
+
+    });
+
+}
+/* =========================================================
+   🦇 DETECTIVE MODE
+========================================================= */
+
+const detectiveToggle =
+    document.getElementById("detective-toggle");
+
+if (detectiveToggle) {
+
+    detectiveToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle(
+            "detective-mode"
+        );
+
+        const active =
+            document.body.classList.contains(
+                "detective-mode"
+            );
+
+        detectiveToggle.innerHTML = active
+            ? "<span>●</span> DETECTIVE MODE // ACTIVE"
+            : "<span>◉</span> DETECTIVE MODE";
+    });
+
+}
