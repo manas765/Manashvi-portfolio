@@ -1,529 +1,354 @@
 /* =========================================================
+   BATCOMPUTER // PORTFOLIO ENGINE
    MANASHVI SHARMA
-   BATCOMPUTER INTERACTION ENGINE
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+"use strict";
 
 
-    /* =====================================================
-       LOADER
-    ===================================================== */
+/* =========================================================
+   LOADER
+========================================================= */
 
-    const loader =
-        document.getElementById("loader");
+const loader = document.getElementById("loader");
+const progress = document.querySelector(".loader-progress");
+const percent = document.querySelector(".loader-percent");
 
-    const progressBar =
-        document.getElementById("loader-progress");
+let loadingValue = 0;
 
-    const progressText =
-        document.getElementById("loader-percent");
+const loadingTimer = setInterval(() => {
 
+    loadingValue += Math.floor(Math.random() * 8) + 3;
 
-    let progress = 0;
+    if (loadingValue >= 100) {
 
+        loadingValue = 100;
 
-    const loadingInterval =
-        setInterval(() => {
+        clearInterval(loadingTimer);
 
-            progress +=
-                Math.floor(
-                    Math.random() * 8
-                ) + 3;
+        setTimeout(() => {
 
-
-            if (progress >= 100) {
-
-                progress = 100;
-
-                clearInterval(
-                    loadingInterval
-                );
-
-
-                setTimeout(() => {
-
-                    if (loader) {
-
-                        loader.classList.add(
-                            "hide"
-                        );
-
-                    }
-
-                }, 400);
-
+            if (loader) {
+                loader.classList.add("hide");
             }
 
-
-            if (progressBar) {
-
-                progressBar.style.width =
-                    `${progress}%`;
-
-            }
-
-
-            if (progressText) {
-
-                progressText.textContent =
-                    `${progress}%`;
-
-            }
-
-        }, 70);
-
-
-
-    /* =====================================================
-       REDUCED MOTION
-    ===================================================== */
-
-    const reducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-
-
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
-
-    const revealElements =
-        document.querySelectorAll(
-            ".section, .stat-card, .project-card, .skill-group, .achievement-card"
-        );
-
-
-    if (!reducedMotion) {
-
-        revealElements.forEach(
-            (element) => {
-
-                element.classList.add(
-                    "reveal"
-                );
-
-            }
-        );
-
-
-        const revealObserver =
-            new IntersectionObserver(
-                (entries) => {
-
-                    entries.forEach(
-                        (entry) => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                revealObserver.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.08
-                }
-            );
-
-
-        revealElements.forEach(
-            (element) => {
-
-                revealObserver.observe(
-                    element
-                );
-
-            }
-        );
-
+        }, 350);
     }
 
-
-
-    /* =====================================================
-       PROJECT 3D EFFECT
-    ===================================================== */
-
-    const projectCards =
-        document.querySelectorAll(
-            ".project-card"
-        );
-
-
-    if (!reducedMotion) {
-
-        projectCards.forEach(
-            (card) => {
-
-
-                card.addEventListener(
-                    "pointermove",
-                    (event) => {
-
-                        const rect =
-                            card.getBoundingClientRect();
-
-
-                        const x =
-                            event.clientX -
-                            rect.left;
-
-
-                        const y =
-                            event.clientY -
-                            rect.top;
-
-
-                        const centerX =
-                            rect.width / 2;
-
-
-                        const centerY =
-                            rect.height / 2;
-
-
-                        const rotateX =
-                            (
-                                (y - centerY) /
-                                centerY
-                            ) * -3;
-
-
-                        const rotateY =
-                            (
-                                (x - centerX) /
-                                centerX
-                            ) * 3;
-
-
-                        card.style.transform =
-                            `
-                            perspective(900px)
-                            rotateX(${rotateX}deg)
-                            rotateY(${rotateY}deg)
-                            translateY(-6px)
-                            `;
-
-                    }
-                );
-
-
-                card.addEventListener(
-                    "pointerleave",
-                    () => {
-
-                        card.style.transform =
-                            "";
-
-                    }
-                );
-
-            }
-        );
-
+    if (progress) {
+        progress.style.width = `${loadingValue}%`;
     }
 
-
-
-    /* =====================================================
-       PROFILE CARD 3D EFFECT
-    ===================================================== */
-
-    const profileCard =
-        document.getElementById(
-            "profileCard"
-        );
-
-
-    if (
-        profileCard &&
-        !reducedMotion
-    ) {
-
-
-        profileCard.addEventListener(
-            "pointermove",
-            (event) => {
-
-                const rect =
-                    profileCard.getBoundingClientRect();
-
-
-                const x =
-                    event.clientX -
-                    rect.left;
-
-
-                const y =
-                    event.clientY -
-                    rect.top;
-
-
-                const centerX =
-                    rect.width / 2;
-
-
-                const centerY =
-                    rect.height / 2;
-
-
-                const rotateX =
-                    (
-                        (y - centerY) /
-                        centerY
-                    ) * -4;
-
-
-                const rotateY =
-                    (
-                        (x - centerX) /
-                        centerX
-                    ) * 4;
-
-
-                profileCard.style.transform =
-                    `
-                    perspective(1200px)
-                    rotateX(${rotateX}deg)
-                    rotateY(${rotateY}deg)
-                    translateZ(10px)
-                    `;
-
-            }
-        );
-
-
-        profileCard.addEventListener(
-            "pointerleave",
-            () => {
-
-                profileCard.style.transform =
-                    `
-                    perspective(1200px)
-                    rotateY(-7deg)
-                    rotateX(3deg)
-                    `;
-
-            }
-        );
-
+    if (percent) {
+        percent.textContent = `${loadingValue}%`;
     }
 
+}, 80);
 
 
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
+const revealElements = document.querySelectorAll(".reveal");
 
+const revealObserver = new IntersectionObserver(
 
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-link"
-        );
+    (entries, observer) => {
 
+        entries.forEach((entry) => {
 
-    function updateNavigation() {
-
-        let currentSection = "";
-
-
-        sections.forEach(
-            (section) => {
-
-                const sectionTop =
-                    section.offsetTop - 180;
-
-
-                if (
-                    window.scrollY >=
-                    sectionTop
-                ) {
-
-                    currentSection =
-                        section.id;
-
-                }
-
+            if (!entry.isIntersecting) {
+                return;
             }
-        );
 
+            entry.target.classList.add("visible");
 
-        navLinks.forEach(
-            (link) => {
+            observer.unobserve(entry.target);
 
-                link.classList.remove(
-                    "active"
-                );
+        });
 
+    },
 
-                const target =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    target ===
-                    `#${currentSection}`
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
+    {
+        threshold: 0.12
     }
 
+);
 
-    window.addEventListener(
-        "scroll",
-        updateNavigation,
-        {
-            passive: true
-        }
-    );
+revealElements.forEach((element) => {
 
-
-    updateNavigation();
-
-
-
-    /* =====================================================
-       SMOOTH SCROLL
-    ===================================================== */
-
-    const anchorLinks =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    anchorLinks.forEach(
-        (link) => {
-
-            link.addEventListener(
-                "click",
-                (event) => {
-
-                    const targetId =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-
-                        return;
-
-                    }
-
-
-                    const target =
-                        document.querySelector(
-                            targetId
-                        );
-
-
-                    if (!target) {
-
-                        return;
-
-                    }
-
-
-                    event.preventDefault();
-
-
-                    const navbarHeight =
-                        80;
-
-
-                    const targetPosition =
-                        target.getBoundingClientRect().top +
-                        window.scrollY -
-                        navbarHeight;
-
-
-                    window.scrollTo({
-
-                        top:
-                            targetPosition,
-
-                        behavior:
-                            reducedMotion
-                                ? "auto"
-                                : "smooth"
-
-                    });
-
-                }
-            );
-
-        }
-    );
-
-
-
-    /* =====================================================
-       FOOTER YEAR
-    ===================================================== */
-
-    const year =
-        document.getElementById(
-            "year"
-        );
-
-
-    if (year) {
-
-        year.textContent =
-            new Date().getFullYear();
-
-    }
-
-
-
-    /* =====================================================
-       BATCOMPUTER CONSOLE
-    ===================================================== */
-
-    console.log(
-        "%c MANASHVI SHARMA ",
-        "background:#d6b13f;color:#050608;font-weight:bold;padding:6px 12px;"
-    );
-
-    console.log(
-        "BATCOMPUTER // SYSTEM ONLINE"
-    );
-
-    console.log(
-        "CURRENT ORGANIZATION // STUDIQUE SRM"
-    );
+    revealObserver.observe(element);
 
 });
+
+
+/* =========================================================
+   PROJECT CARD 3D EFFECT
+========================================================= */
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+projectCards.forEach((card) => {
+
+    card.addEventListener("pointermove", (event) => {
+
+        if (window.innerWidth < 800) {
+            return;
+        }
+
+        const rect = card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 4;
+
+        const rotateX =
+            ((centerY - y) / centerY) * 4;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-4px)`;
+
+    });
+
+
+    card.addEventListener("pointerleave", () => {
+
+        card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
+
+    });
+
+});
+
+
+/* =========================================================
+   PROFILE CARD 3D EFFECT
+========================================================= */
+
+const profileCard =
+    document.querySelector(".profile-card");
+
+if (profileCard) {
+
+    profileCard.addEventListener(
+        "pointermove",
+        (event) => {
+
+            if (window.innerWidth < 800) {
+                return;
+            }
+
+            const rect =
+                profileCard.getBoundingClientRect();
+
+            const x =
+                event.clientX - rect.left;
+
+            const y =
+                event.clientY - rect.top;
+
+            const centerX =
+                rect.width / 2;
+
+            const centerY =
+                rect.height / 2;
+
+            const rotateY =
+                ((x - centerX) / centerX) * 5;
+
+            const rotateX =
+                ((centerY - y) / centerY) * 5;
+
+            profileCard.style.transform =
+                `rotateX(${rotateX}deg)
+                 rotateY(${rotateY}deg)
+                 translateZ(10px)`;
+
+        }
+    );
+
+
+    profileCard.addEventListener(
+        "pointerleave",
+        () => {
+
+            profileCard.style.transform =
+                "rotateX(0deg) rotateY(0deg) translateZ(0)";
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+const navLinks =
+    document.querySelectorAll(".nav-links a");
+
+const sectionObserver =
+    new IntersectionObserver(
+
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const currentId =
+                    entry.target.getAttribute("id");
+
+                navLinks.forEach((link) => {
+
+                    link.classList.remove("active");
+
+                    const href =
+                        link.getAttribute("href");
+
+                    if (href === `#${currentId}`) {
+
+                        link.classList.add("active");
+
+                    }
+
+                });
+
+            });
+
+        },
+
+        {
+            threshold: 0.35
+        }
+
+    );
+
+sections.forEach((section) => {
+
+    sectionObserver.observe(section);
+
+});
+
+
+/* =========================================================
+   SMOOTH NAVIGATION
+========================================================= */
+
+navLinks.forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+        const targetId =
+            link.getAttribute("href");
+
+        if (!targetId || !targetId.startsWith("#")) {
+            return;
+        }
+
+        const target =
+            document.querySelector(targetId);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    });
+
+});
+
+
+/* =========================================================
+   FOOTER YEAR
+========================================================= */
+
+const yearElement =
+    document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   MOUSE GLOW / CARD LIGHTING
+========================================================= */
+
+projectCards.forEach((card) => {
+
+    card.addEventListener("pointermove", (event) => {
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        card.style.background =
+            `radial-gradient(
+                circle at ${x}px ${y}px,
+                rgba(180,185,188,.08),
+                rgba(8,10,11,.96) 45%
+            )`;
+
+    });
+
+
+    card.addEventListener("pointerleave", () => {
+
+        card.style.background =
+            "";
+
+    });
+
+});
+
+
+/* =========================================================
+   CONSOLE SIGNATURE
+========================================================= */
+
+console.log(
+    "%c BATCOMPUTER ONLINE ",
+    "background:#202529;color:#d9dcdd;padding:8px;font-weight:bold;"
+);
+
+console.log(
+    "%c MANASHVI SHARMA // SYSTEM BUILDING ",
+    "color:#899195;"
+);
