@@ -1,297 +1,529 @@
 /* =========================================================
-   MANASHVI SHARMA — PORTFOLIO INTERACTION ENGINE
-   ========================================================= */
+   MANASHVI SHARMA
+   BATCOMPUTER INTERACTION ENGINE
+========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
 
 
-/* =========================================================
-   LOADER
-   ========================================================= */
+    /* =====================================================
+       LOADER
+    ===================================================== */
 
-const loader = document.getElementById("loader");
-const loaderProgress = document.getElementById("loader-progress");
-const loaderPercent = document.getElementById("loader-percent");
+    const loader =
+        document.getElementById("loader");
 
-let progress = 0;
+    const progressBar =
+        document.getElementById("loader-progress");
 
-const loaderInterval = setInterval(() => {
-
-    progress += Math.floor(Math.random() * 8) + 3;
-
-    if (progress >= 100) {
-        progress = 100;
-        clearInterval(loaderInterval);
-
-        setTimeout(() => {
-            loader.classList.add("hide");
-        }, 450);
-    }
-
-    if (loaderProgress) {
-        loaderProgress.style.width = `${progress}%`;
-    }
-
-    if (loaderPercent) {
-        loaderPercent.textContent = `${progress}%`;
-    }
-
-}, 70);
+    const progressText =
+        document.getElementById("loader-percent");
 
 
-/* =========================================================
-   SCROLL REVEAL
-   ========================================================= */
+    let progress = 0;
 
-const revealElements = document.querySelectorAll(".reveal");
 
-const revealObserver = new IntersectionObserver(
-    (entries) => {
+    const loadingInterval =
+        setInterval(() => {
 
-        entries.forEach((entry) => {
+            progress +=
+                Math.floor(
+                    Math.random() * 8
+                ) + 3;
 
-            if (entry.isIntersecting) {
 
-                entry.target.classList.add("visible");
+            if (progress >= 100) {
 
-                revealObserver.unobserve(entry.target);
+                progress = 100;
+
+                clearInterval(
+                    loadingInterval
+                );
+
+
+                setTimeout(() => {
+
+                    if (loader) {
+
+                        loader.classList.add(
+                            "hide"
+                        );
+
+                    }
+
+                }, 400);
+
             }
 
-        });
 
-    },
-    {
-        threshold: 0.12
+            if (progressBar) {
+
+                progressBar.style.width =
+                    `${progress}%`;
+
+            }
+
+
+            if (progressText) {
+
+                progressText.textContent =
+                    `${progress}%`;
+
+            }
+
+        }, 70);
+
+
+
+    /* =====================================================
+       REDUCED MOTION
+    ===================================================== */
+
+    const reducedMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(
+            ".section, .stat-card, .project-card, .skill-group, .achievement-card"
+        );
+
+
+    if (!reducedMotion) {
+
+        revealElements.forEach(
+            (element) => {
+
+                element.classList.add(
+                    "reveal"
+                );
+
+            }
+        );
+
+
+        const revealObserver =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(
+                        (entry) => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "visible"
+                                );
+
+                                revealObserver.unobserve(
+                                    entry.target
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.08
+                }
+            );
+
+
+        revealElements.forEach(
+            (element) => {
+
+                revealObserver.observe(
+                    element
+                );
+
+            }
+        );
+
     }
-);
-
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
-});
 
 
-/* =========================================================
-   PROJECT CARD 3D TILT
-   ========================================================= */
 
-const projectCards = document.querySelectorAll(".project-card");
+    /* =====================================================
+       PROJECT 3D EFFECT
+    ===================================================== */
 
-const reducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-).matches;
+    const projectCards =
+        document.querySelectorAll(
+            ".project-card"
+        );
 
-if (!reducedMotion) {
 
-    projectCards.forEach((card) => {
+    if (!reducedMotion) {
 
-        card.addEventListener("pointermove", (event) => {
+        projectCards.forEach(
+            (card) => {
 
-            const rect = card.getBoundingClientRect();
 
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+                card.addEventListener(
+                    "pointermove",
+                    (event) => {
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+                        const rect =
+                            card.getBoundingClientRect();
 
-            const rotateX =
-                ((y - centerY) / centerY) * -3;
 
-            const rotateY =
-                ((x - centerX) / centerX) * 3;
+                        const x =
+                            event.clientX -
+                            rect.left;
 
-            card.style.transform = `
-                perspective(900px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                translateY(-4px)
-            `;
 
-            card.style.setProperty(
-                "--mouse-x",
-                `${x}px`
+                        const y =
+                            event.clientY -
+                            rect.top;
+
+
+                        const centerX =
+                            rect.width / 2;
+
+
+                        const centerY =
+                            rect.height / 2;
+
+
+                        const rotateX =
+                            (
+                                (y - centerY) /
+                                centerY
+                            ) * -3;
+
+
+                        const rotateY =
+                            (
+                                (x - centerX) /
+                                centerX
+                            ) * 3;
+
+
+                        card.style.transform =
+                            `
+                            perspective(900px)
+                            rotateX(${rotateX}deg)
+                            rotateY(${rotateY}deg)
+                            translateY(-6px)
+                            `;
+
+                    }
+                );
+
+
+                card.addEventListener(
+                    "pointerleave",
+                    () => {
+
+                        card.style.transform =
+                            "";
+
+                    }
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       PROFILE CARD 3D EFFECT
+    ===================================================== */
+
+    const profileCard =
+        document.getElementById(
+            "profileCard"
+        );
+
+
+    if (
+        profileCard &&
+        !reducedMotion
+    ) {
+
+
+        profileCard.addEventListener(
+            "pointermove",
+            (event) => {
+
+                const rect =
+                    profileCard.getBoundingClientRect();
+
+
+                const x =
+                    event.clientX -
+                    rect.left;
+
+
+                const y =
+                    event.clientY -
+                    rect.top;
+
+
+                const centerX =
+                    rect.width / 2;
+
+
+                const centerY =
+                    rect.height / 2;
+
+
+                const rotateX =
+                    (
+                        (y - centerY) /
+                        centerY
+                    ) * -4;
+
+
+                const rotateY =
+                    (
+                        (x - centerX) /
+                        centerX
+                    ) * 4;
+
+
+                profileCard.style.transform =
+                    `
+                    perspective(1200px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateZ(10px)
+                    `;
+
+            }
+        );
+
+
+        profileCard.addEventListener(
+            "pointerleave",
+            () => {
+
+                profileCard.style.transform =
+                    `
+                    perspective(1200px)
+                    rotateY(-7deg)
+                    rotateX(3deg)
+                    `;
+
+            }
+        );
+
+    }
+
+
+
+    /* =====================================================
+       ACTIVE NAVIGATION
+    ===================================================== */
+
+    const sections =
+        document.querySelectorAll(
+            "section[id]"
+        );
+
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-link"
+        );
+
+
+    function updateNavigation() {
+
+        let currentSection = "";
+
+
+        sections.forEach(
+            (section) => {
+
+                const sectionTop =
+                    section.offsetTop - 180;
+
+
+                if (
+                    window.scrollY >=
+                    sectionTop
+                ) {
+
+                    currentSection =
+                        section.id;
+
+                }
+
+            }
+        );
+
+
+        navLinks.forEach(
+            (link) => {
+
+                link.classList.remove(
+                    "active"
+                );
+
+
+                const target =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    target ===
+                    `#${currentSection}`
+                ) {
+
+                    link.classList.add(
+                        "active"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateNavigation,
+        {
+            passive: true
+        }
+    );
+
+
+    updateNavigation();
+
+
+
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
+
+    const anchorLinks =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    anchorLinks.forEach(
+        (link) => {
+
+            link.addEventListener(
+                "click",
+                (event) => {
+
+                    const targetId =
+                        link.getAttribute(
+                            "href"
+                        );
+
+
+                    if (
+                        !targetId ||
+                        targetId === "#"
+                    ) {
+
+                        return;
+
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetId
+                        );
+
+
+                    if (!target) {
+
+                        return;
+
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const navbarHeight =
+                        80;
+
+
+                    const targetPosition =
+                        target.getBoundingClientRect().top +
+                        window.scrollY -
+                        navbarHeight;
+
+
+                    window.scrollTo({
+
+                        top:
+                            targetPosition,
+
+                        behavior:
+                            reducedMotion
+                                ? "auto"
+                                : "smooth"
+
+                    });
+
+                }
             );
 
-            card.style.setProperty(
-                "--mouse-y",
-                `${y}px`
-            );
-
-        });
-
-        card.addEventListener("pointerleave", () => {
-
-            card.style.transform = "";
-
-        });
-
-    });
-
-}
-
-
-/* =========================================================
-   PROFILE CARD 3D TILT
-   ========================================================= */
-
-const profileCard = document.getElementById("profileCard");
-
-if (profileCard && !reducedMotion) {
-
-    profileCard.addEventListener("pointermove", (event) => {
-
-        const rect = profileCard.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-
-        const rotateX =
-            ((y - centerY) / centerY) * -5;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 5;
-
-        profileCard.style.transform = `
-            rotateX(${rotateX}deg)
-            rotateY(${rotateY}deg)
-            translateZ(10px)
-        `;
-
-    });
-
-    profileCard.addEventListener("pointerleave", () => {
-
-        profileCard.style.transform =
-            "rotateX(0deg) rotateY(0deg) translateZ(0)";
-
-    });
-
-}
-
-
-/* =========================================================
-   ACTIVE NAVIGATION
-   ========================================================= */
-
-const sections = document.querySelectorAll(
-    "section[id]"
-);
-
-const navLinks = document.querySelectorAll(
-    ".nav-link"
-);
-
-const updateActiveNavigation = () => {
-
-    let currentSection = "";
-
-    sections.forEach((section) => {
-
-        const sectionTop =
-            section.offsetTop - 180;
-
-        if (window.scrollY >= sectionTop) {
-            currentSection = section.id;
         }
-
-    });
-
-    navLinks.forEach((link) => {
-
-        link.classList.remove("active");
-
-        const target =
-            link.getAttribute("href");
-
-        if (target === `#${currentSection}`) {
-            link.classList.add("active");
-        }
-
-    });
-
-};
-
-window.addEventListener(
-    "scroll",
-    updateActiveNavigation,
-    { passive: true }
-);
-
-updateActiveNavigation();
+    );
 
 
-/* =========================================================
-   DYNAMIC FOOTER YEAR
-   ========================================================= */
 
-const yearElement =
-    document.getElementById("year");
+    /* =====================================================
+       FOOTER YEAR
+    ===================================================== */
 
-if (yearElement) {
-    yearElement.textContent =
-        new Date().getFullYear();
-}
+    const year =
+        document.getElementById(
+            "year"
+        );
 
 
-/* =========================================================
-   SMOOTH ANCHOR OFFSET
-   ========================================================= */
+    if (year) {
 
-document.querySelectorAll(
-    'a[href^="#"]'
-).forEach((link) => {
+        year.textContent =
+            new Date().getFullYear();
 
-    link.addEventListener("click", (event) => {
+    }
 
-        const targetId =
-            link.getAttribute("href");
 
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
-            return;
-        }
 
-        const target =
-            document.querySelector(targetId);
+    /* =====================================================
+       BATCOMPUTER CONSOLE
+    ===================================================== */
 
-        if (!target) {
-            return;
-        }
+    console.log(
+        "%c MANASHVI SHARMA ",
+        "background:#d6b13f;color:#050608;font-weight:bold;padding:6px 12px;"
+    );
 
-        event.preventDefault();
+    console.log(
+        "BATCOMPUTER // SYSTEM ONLINE"
+    );
 
-        const navbarHeight = 80;
-
-        const targetPosition =
-            target.getBoundingClientRect().top +
-            window.scrollY -
-            navbarHeight;
-
-        window.scrollTo({
-            top: targetPosition,
-            behavior: reducedMotion
-                ? "auto"
-                : "smooth"
-        });
-
-    });
+    console.log(
+        "CURRENT ORGANIZATION // STUDIQUE SRM"
+    );
 
 });
-
-
-/* =========================================================
-   CONSOLE SIGNATURE
-   ========================================================= */
-
-console.log(
-    "%c MANASHVI SHARMA ",
-    "background:#111;color:#c9b65b;font-weight:bold;padding:8px;"
-);
-
-console.log(
-    "%c WAYNE TECH DATABASE // SYSTEM ONLINE ",
-    "color:#777;"
-);

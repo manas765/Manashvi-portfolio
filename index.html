@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
 
@@ -7,23 +8,25 @@
           content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
-          content="Manashvi Sharma — Computer Science & Engineering student, developer, AI/ML and cybersecurity enthusiast.">
+          content="Manashvi Sharma — Computer Science & Engineering student, developer and AI/ML enthusiast.">
 
-    <meta name="theme-color" content="#07090b">
+    <meta name="theme-color" content="#050608">
 
-    <title>MANASHVI SHARMA // WAYNE TECH</title>
+    <title>MANASHVI SHARMA | BATCOMPUTER</title>
 
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect"
           href="https://fonts.gstatic.com"
           crossorigin>
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 
 <body>
 
@@ -33,17 +36,20 @@
 
 <div id="loader">
 
-    <div class="loader-symbol">M</div>
+    <div class="loader-bat">🦇</div>
 
     <div class="loader-text">
-        WAYNE TECH // INITIALIZING
+        INITIALIZING BATCOMPUTER
     </div>
 
     <div class="loader-bar">
-        <div class="loader-progress"></div>
+        <div class="loader-progress"
+             id="loader-progress">
+        </div>
     </div>
 
-    <div class="loader-percent">
+    <div class="loader-percent"
+         id="loader-percent">
         0%
     </div>
 
@@ -55,108 +61,178 @@
 ===================================================== -->
 
 <div class="noise"></div>
+
 <div class="grid-background"></div>
 
-<div class="ambient-light ambient-one"></div>
-<div class="ambient-light ambient-two"></div>
+<div class="bat-signal">
+    <div class="signal-symbol">🦇</div>
+</div>
 
 
 <!-- =====================================================
-     NAVBAR
+     NAVIGATION
 ===================================================== -->
 
 <header class="navbar">
 
-    <a href="#home" class="nav-logo">
-        <span class="logo-mark">M</span>
-        <span>MS // 001</span>
-    </a>
+    <div class="nav-logo">
+
+        <span class="logo-mark">
+            M
+        </span>
+
+        <span>
+            MS // 001
+        </span>
+
+    </div>
+
 
     <nav>
 
-        <a href="#home">HOME</a>
-        <a href="#about">PROFILE</a>
-        <a href="#projects">CASE FILES</a>
-        <a href="#skills">ARSENAL</a>
-        <a href="#contact">CONTACT</a>
+        <a href="#home"
+           class="nav-link">
+            HOME
+        </a>
+
+        <a href="#about"
+           class="nav-link">
+            PROFILE
+        </a>
+
+        <a href="#projects"
+           class="nav-link">
+            CASE FILES
+        </a>
+
+        <a href="#skills"
+           class="nav-link">
+            ARSENAL
+        </a>
+
+        <a href="#contact"
+           class="nav-link">
+            CONTACT
+        </a>
 
     </nav>
 
+
     <div class="nav-status">
+
         <span class="status-dot"></span>
-        SYSTEM ONLINE
+
+        ONLINE
+
     </div>
 
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
+
 
 <!-- =====================================================
      HERO
 ===================================================== -->
 
-<section id="home" class="hero">
+<section id="home"
+         class="hero">
 
     <div class="hero-left">
 
         <div class="classification">
-            <span class="classification-line"></span>
+
+            <span></span>
+
             CLASSIFIED // WAYNE TECH DATABASE
+
         </div>
+
 
         <p class="hero-small">
             COMPUTER SCIENCE & ENGINEERING
         </p>
+
 
         <h1>
             MANASHVI
             <span>SHARMA</span>
         </h1>
 
+
         <div class="hero-title">
-            <span></span>
+
+            <span class="line"></span>
+
             DEVELOPER // AI & ML // BUILDER
+
         </div>
 
+
         <p class="hero-description">
-            Computer Science & Engineering student building intelligent,
-            secure and user-focused systems across software, AI/ML,
-            cybersecurity and full-stack development.
+
+            Computer Science & Engineering student building
+            intelligent, secure and user-focused systems across
+            software, AI/ML, cybersecurity and full-stack development.
+
         </p>
+
 
         <div class="hero-buttons">
 
-            <a href="#projects" class="btn primary">
+            <a href="#projects"
+               class="btn primary">
+
                 VIEW CASE FILES
+
                 <span>→</span>
+
             </a>
 
-            <a href="#contact" class="btn secondary">
+
+            <a href="#contact"
+               class="btn secondary">
+
                 CONTACT ME
+
                 <span>↗</span>
+
             </a>
 
         </div>
+
 
         <div class="hero-socials">
 
             <a href="https://github.com/manas765"
                target="_blank"
-               rel="noopener noreferrer">
+               rel="noopener">
+
                 GITHUB
+
             </a>
 
-            <a href="https://leetcode.com/u/manas765/"
-               target="_blank"
-               rel="noopener noreferrer">
-                LEETCODE
-            </a>
 
             <a href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
                target="_blank"
-               rel="noopener noreferrer">
+               rel="noopener">
+
                 LINKEDIN
+
+            </a>
+
+
+            <a href="https://github.com/studique-srm"
+               target="_blank"
+               rel="noopener">
+
+                STUDIQUE SRM
+
             </a>
 
         </div>
@@ -164,17 +240,18 @@
     </div>
 
 
-    <!-- =================================================
-         PROFILE CARD
-    ================================================= -->
+
+    <!-- PROFILE -->
 
     <div class="hero-right">
 
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="orbit orbit-three"></div>
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
+        <div class="profile-orbit orbit-three"></div>
 
-        <div class="profile-card">
+
+        <div class="profile-card"
+             id="profileCard">
 
             <div class="profile-top">
 
@@ -182,11 +259,10 @@
                     IDENTITY VERIFIED
                 </span>
 
-                <span class="verified">
-                    ●
-                </span>
+                <span class="green-dot"></span>
 
             </div>
+
 
             <div class="profile-image-wrap">
 
@@ -194,36 +270,42 @@
 
                 <img
                     src="assets/manas.jpg"
-                    alt="Profile photograph"
+                    alt="Manashvi Sharma"
                     class="profile-image"
                 >
 
                 <div class="image-scan"></div>
 
-                <div class="image-corner corner-tl"></div>
-                <div class="image-corner corner-tr"></div>
-                <div class="image-corner corner-bl"></div>
-                <div class="image-corner corner-br"></div>
-
             </div>
+
 
             <div class="profile-info">
 
                 <div>
-                    <span>CODENAME</span>
-                    <strong>MANAS</strong>
+
+                    <span class="label">
+                        CODENAME
+                    </span>
+
+                    <strong>
+                        MANAS
+                    </strong>
+
                 </div>
+
 
                 <div>
-                    <span>STATUS</span>
-                    <strong>BUILDING</strong>
+
+                    <span class="label">
+                        STATUS
+                    </span>
+
+                    <strong>
+                        BUILDING
+                    </strong>
+
                 </div>
 
-            </div>
-
-            <div class="profile-footer">
-                <span>MS // 001</span>
-                <span>SRM KTR</span>
             </div>
 
         </div>
@@ -231,6 +313,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -259,7 +342,7 @@
     <div class="stat-card">
 
         <span class="stat-number">
-            4
+            6+
         </span>
 
         <span class="stat-label">
@@ -276,23 +359,25 @@
     <div class="stat-card">
 
         <span class="stat-number">
-            83+
+            SRM
         </span>
 
         <span class="stat-label">
-            LEETCODE
+            CURRENT ORG
         </span>
 
         <span class="stat-description">
-            C++ PROBLEMS SOLVED
+            STUDIQUE SRM
         </span>
 
         <a
-            href="https://leetcode.com/u/manas765/"
+            href="https://github.com/studique-srm"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="stat-link">
-            VIEW PROFILE →
+
+            VIEW ORGANIZATION →
+
         </a>
 
     </div>
@@ -317,6 +402,7 @@
 </section>
 
 
+
 <!-- =====================================================
      SYSTEM STRIP
 ===================================================== -->
@@ -324,8 +410,7 @@
 <div class="system-strip">
 
     <span>
-        <i></i>
-        BATCOMPUTER ONLINE
+        ● BATCOMPUTER ONLINE
     </span>
 
     <span>
@@ -343,11 +428,13 @@
 </div>
 
 
+
 <!-- =====================================================
      ABOUT
 ===================================================== -->
 
-<section id="about" class="section about-section">
+<section id="about"
+         class="section about-section">
 
     <div class="section-heading">
 
@@ -374,6 +461,7 @@
 
     <div class="about-grid">
 
+
         <div class="about-text">
 
             <p class="large-text">
@@ -386,43 +474,56 @@
 
             </p>
 
+
             <p>
 
-                My work spans full-stack development, machine learning,
-                explainable AI, cybersecurity, data analysis and
+                My work spans full-stack development,
+                machine learning, explainable AI,
+                cybersecurity, data analysis and
                 intelligent systems.
 
             </p>
 
+
             <p>
 
-                I enjoy taking a problem apart, understanding the
-                underlying system and building something practical
-                around it.
+                I enjoy taking a problem apart,
+                understanding the underlying system
+                and building something practical around it.
 
             </p>
 
-            <div class="about-tags">
 
-                <span>FULL STACK</span>
-                <span>AI / ML</span>
-                <span>CYBERSECURITY</span>
-                <span>FINTECH</span>
+            <div class="current-org">
+
+                <span class="org-label">
+                    CURRENTLY WORKING WITH
+                </span>
+
+                <a
+                    href="https://github.com/studique-srm"
+                    target="_blank"
+                    rel="noopener">
+
+                    STUDIQUE SRM ↗
+
+                </a>
 
             </div>
 
         </div>
 
 
+
+        <!-- TERMINAL -->
+
         <div class="about-terminal">
 
             <div class="terminal-header">
 
-                <div class="terminal-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+                <span></span>
+                <span></span>
+                <span></span>
 
                 <label>
                     BATCOMPUTER // PROFILE
@@ -434,7 +535,10 @@
             <div class="terminal-body">
 
                 <p>
-                    <b>></b>
+                    <span class="terminal-green">
+                        >
+                    </span>
+
                     identity.load()
                 </p>
 
@@ -444,7 +548,10 @@
 
 
                 <p>
-                    <b>></b>
+                    <span class="terminal-green">
+                        >
+                    </span>
+
                     education.current()
                 </p>
 
@@ -454,7 +561,10 @@
 
 
                 <p>
-                    <b>></b>
+                    <span class="terminal-green">
+                        >
+                    </span>
+
                     university.locate()
                 </p>
 
@@ -464,11 +574,27 @@
 
 
                 <p>
-                    <b>></b>
+                    <span class="terminal-green">
+                        >
+                    </span>
+
+                    organization.current()
+                </p>
+
+                <p class="terminal-output">
+                    STUDIQUE SRM
+                </p>
+
+
+                <p>
+                    <span class="terminal-green">
+                        >
+                    </span>
+
                     system.status()
                 </p>
 
-                <p class="terminal-output success">
+                <p class="terminal-output green">
                     ONLINE // BUILDING
                 </p>
 
@@ -481,11 +607,13 @@
 </section>
 
 
+
 <!-- =====================================================
      PROJECTS
 ===================================================== -->
 
-<section id="projects" class="section projects-section">
+<section id="projects"
+         class="section projects-section">
 
     <div class="section-heading">
 
@@ -512,8 +640,8 @@
     <p class="section-intro">
 
         Systems I have designed, engineered and experimented with —
-        ranging from social platforms and financial technology
-        to explainable AI and cybersecurity.
+        ranging from financial technology and social platforms to
+        explainable AI, cybersecurity and student-focused systems.
 
     </p>
 
@@ -521,34 +649,110 @@
     <div class="projects-grid">
 
 
-        <!-- VIBR -->
+        <!-- =================================================
+             LEDGER
+        ================================================== -->
 
-        <article
-            class="project-card featured"
-            data-project="01">
+        <article class="project-card featured">
 
-            <div class="project-topline">
-
-                <span>
-                    CASE FILE // 01
-                </span>
-
-                <span class="project-state">
-                    ACTIVE
-                </span>
-
+            <div class="project-number">
+                CASE FILE // 01
             </div>
-
 
             <div class="project-icon">
-                V
+                ₿
+            </div>
+
+            <h3>
+                LEDGER
+            </h3>
+
+            <p class="project-type">
+                PERSONAL FINANCE & BUDGET TRACKER
+            </p>
+
+            <p class="project-description">
+
+                A full-stack personal finance platform for
+                managing income, expenses and recurring
+                transactions through a clean analytical interface.
+
+            </p>
+
+
+            <ul class="project-features">
+
+                <li>
+                    CRUD transaction management
+                </li>
+
+                <li>
+                    Recurring income & expenses
+                </li>
+
+                <li>
+                    Custom SVG projected-balance chart
+                </li>
+
+                <li>
+                    GitHub-style spending heatmap
+                </li>
+
+                <li>
+                    Category & date-range filtering
+                </li>
+
+            </ul>
+
+
+            <div class="tech-stack">
+
+                <span>
+                    NODE.JS
+                </span>
+
+                <span>
+                    EXPRESS
+                </span>
+
+                <span>
+                    JAVASCRIPT
+                </span>
+
+                <span>
+                    SVG
+                </span>
+
             </div>
 
 
-            <span class="project-number">
-                01
-            </span>
+            <a
+                href="https://github.com/aeriellaaa/Ledger"
+                target="_blank"
+                rel="noopener"
+                class="project-link">
 
+                OPEN CASE FILE →
+
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             VIBR
+        ================================================== -->
+
+        <article class="project-card">
+
+            <div class="project-number">
+                CASE FILE // 02
+            </div>
+
+            <div class="project-icon">
+                ♪
+            </div>
 
             <h3>
                 VIBR
@@ -560,10 +764,9 @@
 
             <p class="project-description">
 
-                A social platform built around music discovery,
-                community activity and personal music identity —
-                combining a modern React interface with persistent
-                user data and external music services.
+                A full-stack social music discovery platform
+                where users discover, rate, save and follow music
+                through an interactive experience.
 
             </p>
 
@@ -571,19 +774,23 @@
             <ul class="project-features">
 
                 <li>
-                    Genre discovery, search, saved tracks and ratings
+                    Custom 3D music card interface
                 </li>
 
                 <li>
-                    Following, releases and community interaction
+                    Live YouTube search
                 </li>
 
                 <li>
-                    Supabase authentication and persistent data
+                    Supabase authentication
                 </li>
 
                 <li>
-                    Music-service API integrations
+                    Persistent profiles & saved tracks
+                </li>
+
+                <li>
+                    Vercel serverless functions
                 </li>
 
             </ul>
@@ -591,10 +798,21 @@
 
             <div class="tech-stack">
 
-                <span>REACT</span>
-                <span>VITE</span>
-                <span>SUPABASE</span>
-                <span>VERCEL</span>
+                <span>
+                    REACT
+                </span>
+
+                <span>
+                    VITE
+                </span>
+
+                <span>
+                    SUPABASE
+                </span>
+
+                <span>
+                    VERCEL
+                </span>
 
             </div>
 
@@ -602,51 +820,33 @@
             <a
                 href="https://github.com/manas765/vibr"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="project-link">
 
-                OPEN REPOSITORY
-
-                <b>↗</b>
+                OPEN CASE FILE →
 
             </a>
 
         </article>
 
 
-        <!-- ALT CREDIT -->
 
-        <article
-            class="project-card"
-            data-project="02">
+        <!-- =================================================
+             ALT CREDIT
+        ================================================== -->
 
-            <div class="project-topline">
+        <article class="project-card">
 
-                <span>
-                    CASE FILE // 02
-                </span>
-
-                <span class="project-state">
-                    AI SYSTEM
-                </span>
-
+            <div class="project-number">
+                CASE FILE // 03
             </div>
-
 
             <div class="project-icon">
                 ◈
             </div>
 
-
-            <span class="project-number">
-                02
-            </span>
-
-
             <h3>
-                ALT-CREDIT
-                <br>
-                LEDGER
+                ALT-CREDIT LEDGER
             </h3>
 
             <p class="project-type">
@@ -655,9 +855,9 @@
 
             <p class="project-description">
 
-                An explainable creditworthiness platform designed
-                around alternative financial signals and
-                thin-file users.
+                An alternative credit-scoring platform designed
+                for India's thin-file population using
+                non-traditional financial signals.
 
             </p>
 
@@ -665,11 +865,11 @@
             <ul class="project-features">
 
                 <li>
-                    XGBoost scoring with SHAP explanations
+                    XGBoost credit classifier
                 </li>
 
                 <li>
-                    Data-Gap Coach
+                    SHAP explainability
                 </li>
 
                 <li>
@@ -677,7 +877,15 @@
                 </li>
 
                 <li>
-                    Fairness diagnostics
+                    Data-Gap Coach
+                </li>
+
+                <li>
+                    Fairness audit
+                </li>
+
+                <li>
+                    LLM-powered assistant
                 </li>
 
             </ul>
@@ -685,10 +893,21 @@
 
             <div class="tech-stack">
 
-                <span>FLASK</span>
-                <span>REACT</span>
-                <span>XGBOOST</span>
-                <span>SHAP</span>
+                <span>
+                    FLASK
+                </span>
+
+                <span>
+                    REACT
+                </span>
+
+                <span>
+                    XGBOOST
+                </span>
+
+                <span>
+                    SHAP
+                </span>
 
             </div>
 
@@ -696,60 +915,44 @@
             <a
                 href="https://github.com/manas765/alt-credit-score"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="project-link">
 
-                OPEN REPOSITORY
-
-                <b>↗</b>
+                OPEN CASE FILE →
 
             </a>
 
         </article>
 
 
-        <!-- MICROGUARD -->
 
-        <article
-            class="project-card"
-            data-project="03">
+        <!-- =================================================
+             MICROGUARD
+        ================================================== -->
 
-            <div class="project-topline">
+        <article class="project-card">
 
-                <span>
-                    CASE FILE // 03
-                </span>
-
-                <span class="project-state">
-                    FINTECH
-                </span>
-
+            <div class="project-number">
+                CASE FILE // 04
             </div>
-
 
             <div class="project-icon">
-                M
+                ◉
             </div>
-
-
-            <span class="project-number">
-                03
-            </span>
-
 
             <h3>
                 MICROGUARD
             </h3>
 
             <p class="project-type">
-                MICROFINANCE PLATFORM
+                MICROFINANCE / FINTECH SYSTEM
             </p>
 
             <p class="project-description">
 
-                A microfinance-focused system combining an application
-                layer, frontend and loan-data workflow for exploring
-                smarter financial operations.
+                A financial technology project focused on
+                microfinance workflows, financial data and
+                technology-driven lending systems.
 
             </p>
 
@@ -757,19 +960,19 @@
             <ul class="project-features">
 
                 <li>
-                    Application and frontend layers
+                    Microfinance-oriented workflow
                 </li>
 
                 <li>
-                    Microfinance loan dataset integration
+                    Financial dataset analysis
                 </li>
 
                 <li>
-                    Structured financial data workflow
+                    Structured application architecture
                 </li>
 
                 <li>
-                    Foundation for smarter lending systems
+                    Frontend + application layer
                 </li>
 
             </ul>
@@ -777,10 +980,21 @@
 
             <div class="tech-stack">
 
-                <span>PYTHON</span>
-                <span>DATA</span>
-                <span>FRONTEND</span>
-                <span>FINTECH</span>
+                <span>
+                    PYTHON
+                </span>
+
+                <span>
+                    DATA
+                </span>
+
+                <span>
+                    WEB
+                </span>
+
+                <span>
+                    FINTECH
+                </span>
 
             </div>
 
@@ -788,51 +1002,33 @@
             <a
                 href="https://github.com/manas765/MICROGUARD"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="project-link">
 
-                OPEN REPOSITORY
-
-                <b>↗</b>
+                OPEN CASE FILE →
 
             </a>
 
         </article>
 
 
-        <!-- INSIDER THREAT -->
 
-        <article
-            class="project-card"
-            data-project="04">
+        <!-- =================================================
+             INSIDER THREAT
+        ================================================== -->
 
-            <div class="project-topline">
+        <article class="project-card">
 
-                <span>
-                    CASE FILE // 04
-                </span>
-
-                <span class="project-state">
-                    SECURITY
-                </span>
-
+            <div class="project-number">
+                CASE FILE // 05
             </div>
-
 
             <div class="project-icon">
-                ◉
+                ⚠
             </div>
 
-
-            <span class="project-number">
-                04
-            </span>
-
-
             <h3>
-                INSIDER
-                <br>
-                THREAT
+                INSIDER THREAT
             </h3>
 
             <p class="project-type">
@@ -841,9 +1037,9 @@
 
             <p class="project-description">
 
-                An end-to-end anomaly detection pipeline using
-                enterprise activity data to study behavioral patterns
-                associated with potential insider threats.
+                An end-to-end anomaly detection pipeline designed
+                to identify potential insider threats using
+                enterprise activity data.
 
             </p>
 
@@ -851,19 +1047,27 @@
             <ul class="project-features">
 
                 <li>
-                    Behavioral feature engineering
+                    CERT r4.2 activity dataset
                 </li>
 
                 <li>
-                    Multiple dataset variants
+                    9 behavioral features
                 </li>
 
                 <li>
-                    Isolation Forest comparison
+                    Class imbalance handling
                 </li>
 
                 <li>
-                    One-Class SVM and Autoencoder
+                    Isolation Forest
+                </li>
+
+                <li>
+                    One-Class SVM
+                </li>
+
+                <li>
+                    Autoencoder detection
                 </li>
 
             </ul>
@@ -871,10 +1075,17 @@
 
             <div class="tech-stack">
 
-                <span>PYTHON</span>
-                <span>ML</span>
-                <span>ISOLATION FOREST</span>
-                <span>AUTOENCODER</span>
+                <span>
+                    PYTHON
+                </span>
+
+                <span>
+                    MACHINE LEARNING
+                </span>
+
+                <span>
+                    CYBERSECURITY
+                </span>
 
             </div>
 
@@ -882,12 +1093,102 @@
             <a
                 href="https://github.com/manas765"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener"
                 class="project-link">
 
-                VIEW GITHUB
+                OPEN CASE FILE →
 
-                <b>↗</b>
+            </a>
+
+        </article>
+
+
+
+        <!-- =================================================
+             STUDIQUE
+        ================================================== -->
+
+        <article class="project-card featured">
+
+            <div class="project-number">
+                CASE FILE // 06
+            </div>
+
+            <div class="project-icon">
+                S
+            </div>
+
+            <h3>
+                STUDIQUE SRM
+            </h3>
+
+            <p class="project-type">
+                STUDENT TECHNOLOGY PLATFORM
+            </p>
+
+            <p class="project-description">
+
+                A student-focused platform designed around
+                everyday campus utilities and academic life,
+                bringing important student resources into one
+                accessible system.
+
+            </p>
+
+
+            <ul class="project-features">
+
+                <li>
+                    Student utility ecosystem
+                </li>
+
+                <li>
+                    Attendance tracking
+                </li>
+
+                <li>
+                    Notes & academic resources
+                </li>
+
+                <li>
+                    Mess menu access
+                </li>
+
+                <li>
+                    Campus-focused user experience
+                </li>
+
+            </ul>
+
+
+            <div class="tech-stack">
+
+                <span>
+                    WEB
+                </span>
+
+                <span>
+                    FRONTEND
+                </span>
+
+                <span>
+                    STUDENT TECH
+                </span>
+
+                <span>
+                    SRM
+                </span>
+
+            </div>
+
+
+            <a
+                href="https://github.com/studique-srm"
+                target="_blank"
+                rel="noopener"
+                class="project-link">
+
+                OPEN CASE FILE →
 
             </a>
 
@@ -899,11 +1200,13 @@
 </section>
 
 
+
 <!-- =====================================================
      SKILLS
 ===================================================== -->
 
-<section id="skills" class="section skills-section">
+<section id="skills"
+         class="section skills-section">
 
     <div class="section-heading">
 
@@ -941,12 +1244,16 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>PYTHON</span>
                 <span>C++</span>
                 <span>C</span>
+                <span>JAVASCRIPT</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -960,13 +1267,17 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>HTML</span>
                 <span>CSS</span>
                 <span>JAVASCRIPT</span>
                 <span>REACT</span>
+                <span>VITE</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -980,13 +1291,16 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>FLASK</span>
-                <span>REST API</span>
                 <span>NODE.JS</span>
                 <span>EXPRESS</span>
+                <span>REST API</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -1000,15 +1314,18 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>PYTORCH</span>
                 <span>SCIKIT-LEARN</span>
                 <span>NUMPY</span>
                 <span>PANDAS</span>
                 <span>XGBOOST</span>
                 <span>SHAP</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -1022,12 +1339,16 @@
             </h3>
 
             <div class="skill-list">
-                <span>MS SQL SERVER</span>
+
+                <span>SQL</span>
                 <span>SQLITE</span>
                 <span>POSTGRESQL</span>
+                <span>SUPABASE</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -1041,14 +1362,16 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>GIT</span>
                 <span>GITHUB</span>
-                <span>GOOGLE CLOUD</span>
-                <span>VERTEX AI</span>
                 <span>VERCEL</span>
+                <span>GOOGLE CLOUD</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -1058,17 +1381,20 @@
             </div>
 
             <h3>
-                SECURITY / IOT
+                SECURITY
             </h3>
 
             <div class="skill-list">
+
+                <span>CYBERSECURITY</span>
+                <span>ANOMALY DETECTION</span>
                 <span>IOT SECURITY</span>
                 <span>EDGE COMPUTING</span>
-                <span>CNN</span>
-                <span>LSTM</span>
+
             </div>
 
         </div>
+
 
 
         <div class="skill-group">
@@ -1082,10 +1408,12 @@
             </h3>
 
             <div class="skill-list">
+
                 <span>DATA ANALYSIS</span>
                 <span>FEATURE ENGINEERING</span>
-                <span>RISK ASSESSMENT</span>
+                <span>DSA</span>
                 <span>STATISTICAL MODELING</span>
+
             </div>
 
         </div>
@@ -1093,6 +1421,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1128,7 +1457,9 @@
 
         <div class="achievement-card">
 
-            <span>01</span>
+            <span class="achievement-number">
+                01
+            </span>
 
             <div>
 
@@ -1149,9 +1480,12 @@
         </div>
 
 
+
         <div class="achievement-card">
 
-            <span>02</span>
+            <span class="achievement-number">
+                02
+            </span>
 
             <div>
 
@@ -1164,7 +1498,7 @@
                 </p>
 
                 <small>
-                    Shortlisted among the top 10 teams.
+                    Technical community involvement.
                 </small>
 
             </div>
@@ -1172,9 +1506,12 @@
         </div>
 
 
+
         <div class="achievement-card">
 
-            <span>03</span>
+            <span class="achievement-number">
+                03
+            </span>
 
             <div>
 
@@ -1191,9 +1528,12 @@
         </div>
 
 
+
         <div class="achievement-card">
 
-            <span>04</span>
+            <span class="achievement-number">
+                04
+            </span>
 
             <div>
 
@@ -1210,9 +1550,12 @@
         </div>
 
 
+
         <div class="achievement-card">
 
-            <span>05</span>
+            <span class="achievement-number">
+                05
+            </span>
 
             <div>
 
@@ -1221,13 +1564,8 @@
                 </h3>
 
                 <p>
-                    Networking Basics
+                    Networking Foundations
                 </p>
-
-                <small>
-                    Network fundamentals, IPv4/IPv6 addressing,
-                    routers and connectivity troubleshooting.
-                </small>
 
             </div>
 
@@ -1236,6 +1574,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =====================================================
@@ -1247,7 +1586,7 @@
     <div class="connect-card">
 
         <div class="connect-icon">
-            M
+            ◉
         </div>
 
         <p class="eyebrow">
@@ -1277,11 +1616,14 @@
 </section>
 
 
+
 <!-- =====================================================
      CONTACT
 ===================================================== -->
 
-<section id="contact" class="contact-section">
+<section id="contact"
+         class="contact-section">
+
 
     <div class="contact-left">
 
@@ -1302,71 +1644,91 @@
     </div>
 
 
+
     <div class="contact-links">
 
 
         <a
             href="https://github.com/manas765"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="contact-link">
 
-            <span>GITHUB</span>
+            <span>
+                GITHUB
+            </span>
 
             <strong>
                 @manas765
             </strong>
 
-            <span>↗</span>
+            <span>
+                ↗
+            </span>
 
         </a>
 
-
-        <a
-            href="https://leetcode.com/u/manas765/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-link">
-
-            <span>LEETCODE</span>
-
-            <strong>
-                manas765
-            </strong>
-
-            <span>↗</span>
-
-        </a>
 
 
         <a
             href="https://www.linkedin.com/in/manashvi-sharma-0a01702ab/"
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener"
             class="contact-link">
 
-            <span>LINKEDIN</span>
+            <span>
+                LINKEDIN
+            </span>
 
             <strong>
                 MANASHVI SHARMA
             </strong>
 
-            <span>↗</span>
+            <span>
+                ↗
+            </span>
 
         </a>
+
+
+
+        <a
+            href="https://github.com/studique-srm"
+            target="_blank"
+            rel="noopener"
+            class="contact-link">
+
+            <span>
+                ORGANIZATION
+            </span>
+
+            <strong>
+                STUDIQUE SRM
+            </strong>
+
+            <span>
+                ↗
+            </span>
+
+        </a>
+
 
 
         <a
             href="mailto:manashvisharma07@gmail.com"
             class="contact-link">
 
-            <span>EMAIL</span>
+            <span>
+                EMAIL
+            </span>
 
             <strong>
                 MANASHVISHARMA07@GMAIL.COM
             </strong>
 
-            <span>↗</span>
+            <span>
+                ↗
+            </span>
 
         </a>
 
@@ -1375,25 +1737,28 @@
 </section>
 
 
+
 <!-- =====================================================
      FOOTER
 ===================================================== -->
 
 <footer>
 
-    <div>
+    <div class="footer-left">
         WAYNE TECH // SECURE CONNECTION
     </div>
 
-    <div>
+    <div class="footer-center">
         MS // 001
     </div>
 
-    <div id="footer-year">
-        © 2026 MANASHVI SHARMA
+    <div class="footer-right">
+        © <span id="year">2026</span>
+        MANASHVI SHARMA
     </div>
 
 </footer>
+
 
 </main>
 
