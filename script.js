@@ -1,109 +1,232 @@
 /* =========================================================
    MANASHVI SHARMA
-   BATMAN PORTFOLIO // INTERACTION ENGINE
+   PORTFOLIO INTERACTION ENGINE
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
-       LOADER
-    ===================================================== */
+/* =========================================================
+   LOADER
+========================================================= */
 
-    const loader = document.getElementById("loader");
-    const loaderProgress = document.getElementById("loaderProgress");
-    const loaderPercent = document.getElementById("loaderPercent");
+const loader = document.getElementById("loader");
+const loaderProgress = document.getElementById("loader-progress");
+const loaderPercent = document.getElementById("loader-percent");
 
-    let progress = 0;
+let progress = 0;
 
-    const loadingInterval = setInterval(() => {
+const loaderInterval = setInterval(() => {
 
-        progress += Math.floor(Math.random() * 8) + 3;
+    progress += Math.floor(Math.random() * 8) + 4;
 
-        if (progress >= 100) {
+    if (progress >= 100) {
 
-            progress = 100;
+        progress = 100;
 
-            clearInterval(loadingInterval);
-
-            setTimeout(() => {
-
-                loader.classList.add("hidden");
-
-            }, 350);
-
-        }
+        clearInterval(loaderInterval);
 
         if (loaderProgress) {
-            loaderProgress.style.width = `${progress}%`;
+            loaderProgress.style.width = "100%";
         }
 
         if (loaderPercent) {
-            loaderPercent.textContent =
-                `${String(progress).padStart(2, "0")}%`;
+            loaderPercent.textContent = "100%";
         }
 
-    }, 70);
+        setTimeout(() => {
+
+            if (loader) {
+                loader.classList.add("hidden");
+            }
+
+            document.body.classList.add("loaded");
+
+        }, 350);
+
+        return;
+    }
+
+    if (loaderProgress) {
+        loaderProgress.style.width = progress + "%";
+    }
+
+    if (loaderPercent) {
+        loaderPercent.textContent =
+            String(progress).padStart(2, "0") + "%";
+    }
+
+}, 90);
 
 
-    /* =====================================================
-       SCROLL REVEAL
-    ===================================================== */
 
-    const revealElements = document.querySelectorAll(
-        ".section-header, " +
-        ".about-grid, " +
-        ".organization-card, " +
-        ".project-card, " +
-        ".skill-category, " +
-        ".record, " +
-        ".contact-link"
-    );
+/* =========================================================
+   YEAR
+========================================================= */
 
-    revealElements.forEach((element) => {
-        element.classList.add("reveal");
-    });
+const yearElement = document.getElementById("year");
+
+if (yearElement) {
+
+    yearElement.textContent =
+        new Date().getFullYear();
+
+}
 
 
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+    new IntersectionObserver(
+
+        (entries) => {
 
             entries.forEach((entry) => {
 
-                if (!entry.isIntersecting) {
-                    return;
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
                 }
-
-                entry.target.classList.add("visible");
-
-                observer.unobserve(entry.target);
 
             });
 
         },
+
         {
             threshold: 0.12
         }
+
     );
 
 
-    revealElements.forEach((element) => {
-        revealObserver.observe(element);
+revealElements.forEach((element) => {
+
+    revealObserver.observe(element);
+
+});
+
+
+
+/* =========================================================
+   PROJECT CARD MOUSE SPOTLIGHT
+========================================================= */
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+
+projectCards.forEach((card) => {
+
+    card.addEventListener("mousemove", (event) => {
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            ((event.clientX - rect.left) / rect.width) * 100;
+
+        const y =
+            ((event.clientY - rect.top) / rect.height) * 100;
+
+        card.style.setProperty(
+            "--mouse-x",
+            x + "%"
+        );
+
+        card.style.setProperty(
+            "--mouse-y",
+            y + "%"
+        );
+
+    });
+
+});
+
+
+
+/* =========================================================
+   PROJECT CARD 3D TILT
+========================================================= */
+
+projectCards.forEach((card) => {
+
+    card.addEventListener("mousemove", (event) => {
+
+        if (window.innerWidth < 900) {
+            return;
+        }
+
+        const rect =
+            card.getBoundingClientRect();
+
+        const x =
+            event.clientX - rect.left;
+
+        const y =
+            event.clientY - rect.top;
+
+        const centerX =
+            rect.width / 2;
+
+        const centerY =
+            rect.height / 2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 3;
+
+        const rotateX =
+            ((centerY - y) / centerY) * 3;
+
+        card.style.transform =
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-4px)`;
+
     });
 
 
-    /* =====================================================
-       PROJECT CARD 3D TILT
-    ===================================================== */
+    card.addEventListener("mouseleave", () => {
 
-    const projectCards =
-        document.querySelectorAll(".project-card");
+        card.style.transform =
+            "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+
+    });
+
+});
 
 
-    projectCards.forEach((card) => {
 
-        card.addEventListener("mousemove", (event) => {
+/* =========================================================
+   PROFILE CARD 3D TILT
+========================================================= */
 
-            const rect = card.getBoundingClientRect();
+const profileCard =
+    document.querySelector(".profile-card");
+
+
+if (profileCard) {
+
+    profileCard.addEventListener(
+        "mousemove",
+        (event) => {
+
+            if (window.innerWidth < 900) {
+                return;
+            }
+
+            const rect =
+                profileCard.getBoundingClientRect();
 
             const x =
                 event.clientX - rect.left;
@@ -111,244 +234,208 @@ document.addEventListener("DOMContentLoaded", () => {
             const y =
                 event.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
+            const centerX =
+                rect.width / 2;
 
-            const rotateX =
-                ((y - centerY) / centerY) * -2.5;
+            const centerY =
+                rect.height / 2;
 
             const rotateY =
-                ((x - centerX) / centerX) * 2.5;
+                ((x - centerX) / centerX) * 5;
 
-            card.style.transform =
-                `perspective(1000px)
-                 rotateX(${rotateX}deg)
+            const rotateX =
+                ((centerY - y) / centerY) * 5;
+
+            profileCard.style.transform =
+                `rotateX(${rotateX}deg)
                  rotateY(${rotateY}deg)
-                 translateY(-4px)`;
+                 translateZ(8px)`;
 
-            card.style.setProperty(
-                "--mouse-x",
-                `${x}px`
-            );
-
-            card.style.setProperty(
-                "--mouse-y",
-                `${y}px`
-            );
-
-        });
-
-
-        card.addEventListener("mouseleave", () => {
-
-            card.style.transform =
-                "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)";
-
-        });
-
-    });
-
-
-    /* =====================================================
-       PROFILE CARD 3D TILT
-    ===================================================== */
-
-    const profileCard =
-        document.getElementById("profileCard");
-
-
-    if (profileCard) {
-
-        profileCard.addEventListener(
-            "mousemove",
-            (event) => {
-
-                const rect =
-                    profileCard.getBoundingClientRect();
-
-                const x =
-                    event.clientX - rect.left;
-
-                const y =
-                    event.clientY - rect.top;
-
-                const centerX =
-                    rect.width / 2;
-
-                const centerY =
-                    rect.height / 2;
-
-                const rotateX =
-                    ((y - centerY) / centerY) * -5;
-
-                const rotateY =
-                    ((x - centerX) / centerX) * 5;
-
-                profileCard.style.transform =
-                    `rotateX(${rotateX}deg)
-                     rotateY(${rotateY}deg)
-                     translateZ(10px)`;
-
-            }
-        );
-
-
-        profileCard.addEventListener(
-            "mouseleave",
-            () => {
-
-                profileCard.style.transform =
-                    "rotateX(0deg) rotateY(0deg) translateZ(0)";
-
-            }
-        );
-
-    }
-
-
-    /* =====================================================
-       ACTIVE NAVIGATION
-    ===================================================== */
-
-    const sections =
-        document.querySelectorAll("section[id]");
-
-    const navLinks =
-        document.querySelectorAll(".nav-link");
-
-
-    const navObserver = new IntersectionObserver(
-        (entries) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                const currentId =
-                    entry.target.getAttribute("id");
-
-
-                navLinks.forEach((link) => {
-
-                    link.classList.remove("active");
-
-                    const href =
-                        link.getAttribute("href");
-
-                    if (href === `#${currentId}`) {
-                        link.classList.add("active");
-                    }
-
-                });
-
-            });
-
-        },
-        {
-            rootMargin: "-35% 0px -55% 0px"
         }
     );
 
 
-    sections.forEach((section) => {
-        navObserver.observe(section);
-    });
+    profileCard.addEventListener(
+        "mouseleave",
+        () => {
+
+            profileCard.style.transform =
+                "rotateX(0deg) rotateY(0deg)";
+
+        }
+    );
+
+}
 
 
-    /* =====================================================
-       SMOOTH NAVIGATION
-    ===================================================== */
 
-    navLinks.forEach((link) => {
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
 
-        link.addEventListener("click", (event) => {
+const navLinks =
+    document.querySelectorAll(".nav-link");
 
-            const targetId =
-                link.getAttribute("href");
 
-            if (!targetId || !targetId.startsWith("#")) {
-                return;
-            }
+const sections =
+    document.querySelectorAll("section[id]");
 
-            const target =
-                document.querySelector(targetId);
 
-            if (!target) {
-                return;
-            }
+const navObserver =
+    new IntersectionObserver(
 
-            event.preventDefault();
+        (entries) => {
 
-            target.scrollIntoView({
-                behavior: "smooth",
-                block: "start"
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    const id =
+                        entry.target.getAttribute("id");
+
+                    navLinks.forEach((link) => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+                        const href =
+                            link.getAttribute("href");
+
+                        if (href === "#" + id) {
+
+                            link.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                }
+
             });
 
+        },
+
+        {
+            rootMargin:
+                "-35% 0px -55% 0px"
+        }
+
+    );
+
+
+sections.forEach((section) => {
+
+    navObserver.observe(section);
+
+});
+
+
+
+/* =========================================================
+   SMOOTH NAVIGATION
+========================================================= */
+
+navLinks.forEach((link) => {
+
+    link.addEventListener("click", (event) => {
+
+        const href =
+            link.getAttribute("href");
+
+        if (!href || !href.startsWith("#")) {
+            return;
+        }
+
+        const target =
+            document.querySelector(href);
+
+        if (!target) {
+            return;
+        }
+
+        event.preventDefault();
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
         });
 
     });
 
-
-    /* =====================================================
-       DYNAMIC FOOTER YEAR
-    ===================================================== */
-
-    const footerYear =
-        document.getElementById("footerYear");
+});
 
 
-    if (footerYear) {
 
-        footerYear.textContent =
-            `© ${new Date().getFullYear()}`;
+/* =========================================================
+   PARALLAX HERO
+========================================================= */
 
-    }
-
-
-    /* =====================================================
-       EXTERNAL LINKS
-    ===================================================== */
-
-    const externalLinks =
-        document.querySelectorAll(
-            'a[target="_blank"]'
-        );
+const heroVisual =
+    document.querySelector(".hero-visual");
 
 
-    externalLinks.forEach((link) => {
+if (heroVisual) {
 
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
+    window.addEventListener(
+        "scroll",
+        () => {
 
-    });
+            if (window.innerWidth < 900) {
+                return;
+            }
+
+            const scrollY =
+                window.scrollY;
+
+            if (scrollY < window.innerHeight) {
+
+                heroVisual.style.transform =
+                    `translateY(${scrollY * 0.08}px)`;
+
+            }
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
 
 
-    /* =====================================================
-       REDUCED MOTION
-    ===================================================== */
 
-    const reducedMotion =
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        );
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
 
+document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (reducedMotion.matches) {
+        if (event.key === "Escape") {
 
-        projectCards.forEach((card) => {
+            document.activeElement.blur();
 
-            card.style.transform = "none";
-
-        });
-
-        if (profileCard) {
-            profileCard.style.transform = "none";
         }
 
     }
+);
 
-});
+
+
+/* =========================================================
+   CONSOLE MESSAGE
+========================================================= */
+
+console.log(
+    "%c WAYNE TECH DATABASE ",
+    "background:#151a1d;color:#d9dddf;padding:8px;font-weight:bold;"
+);
+
+console.log(
+    "%c MANASHVI SHARMA // SYSTEM ONLINE ",
+    "color:#9aa3a8;"
+);
